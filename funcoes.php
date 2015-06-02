@@ -84,11 +84,11 @@ function editarCurso($idCurso,$nome, $mac, $dataMac, $modulo, $coordenador, $idD
 
         $re=$requisito[$i];
         $id=$idDisciplina[$i];
-        echo "<script>alert('requisito: $re,disciplina: $id')</script>";
+
         $sqlModulo = "update modulo set prerequisito = '$requisito[$i]' where idDiciplina = '$idDisciplina[$i]' and idCurso = '$idCurso'";
         $sqlModulo = $GLOBALS['con']->query($sqlModulo);
 
-        if($sqlModulo == true){ echo "<script>alert('sucesso')</script>";}else{ echo "<script>alert('erro')</script>";}
+
     }
 
     $sql = "UPDATE cursos SET Nome='$nome',codMac='$mac',dataAutoMac='$dataMac',Cordenador='$coordenador',Modulo='$modulo' WHERE idCurso = '$idCurso'";
@@ -107,7 +107,7 @@ function editarCurso($idCurso,$nome, $mac, $dataMac, $modulo, $coordenador, $idD
 
     if($query == true)
     {
-        echo "<script>alert('Atualizado com sucesso!'); location.href='curso.php';</script>";
+        echo "<script>alert('Atualizado com sucesso!'); location.href='consultarCurso.php';</script>";
         return true;
     }else
     {
