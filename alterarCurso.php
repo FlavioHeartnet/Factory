@@ -32,6 +32,7 @@ include("funcoes.php");
         $sql = "select * from cursos where idCurso = '$idCurso'";
         $query=$con->query($sql);
         $busca= $query->fetch_array();
+        $modulo = $busca['Modulo'];
 
     }
 
@@ -127,13 +128,13 @@ include("funcoes.php");
 
                 $sql = "select * from modulo m inner join diciplinas d on d.idDiciplina = m.idDiciplina where m.idCurso = '$idCurso'";
 
-                $query = $con->query($sql);
 
-                $rsBuscaModulo = $query->fetch_array();
+
+               for($i=1; $i<=$modulo;$i++){
                 ?>
                 <div class="ui left TituloModulos">Disciplinas</div>
                 <hr><br>
-                <div class="ui left Modulos"><?php echo $rsBuscaModulo['semestre']?>º Módulo </div>
+                <div class="ui left Modulos"><?php echo $i?>º Módulo </div>
                 <table class="ui red table">
                     <thead>
                     <tr>
@@ -144,8 +145,17 @@ include("funcoes.php");
                         <th></th>
                     </tr>
                     </thead>
+
                     <?php
+
+                    $query = $con->query($sql);
                     while($rsBuscaModulo = $query->fetch_array()){
+
+                    $semestre = $rsBuscaModulo['semestre'];
+
+                        if($semestre == $i){
+
+
 
                     ?>
 
@@ -165,30 +175,54 @@ include("funcoes.php");
                             </label></td>
                         <td><label>
                                 <input type="text" name="carga[]" value="<?php echo $rsBuscaModulo['cargaHoraria']; ?>"
-                                       class="inputDisciplina ">
+                                       class="inputDisciplina">
                             </label></td>
                         <td><label>
                                 <select class="ui dropdown" name="requisito[]">
-                                    <option value="0">Sem pre-requisito</option>
                                     <?php
+                                    $idModulo = $rsBuscaModulo['idModulo'];
+                                    $sql2 = "select * from modulo m INNER JOIN diciplinas d on m.idDiciplina = d.idDiciplina where m.idModulo = '$idModulo'";
+                                    $result=$con->query($sql2);
+                                    $sql2=$result->fetch_array();
+                                    $requisito = $sql2['prerequisito'];
+
+                                    if($requisito== 0 or $requisito == "") {
+
+                                        ?>
+                                        <option value="0">Sem Pré-Requisito</option>
+                                    <?php
+                                    }else{
+
+                                        $prerequisito = $sql2['prerequisito'];
+                                        $sql3 = $con->query("select * from diciplinas WHERE idDiciplina = '$prerequisito'");
+                                       $rsSql= $sql3->fetch_array();
+                                        ?>
+                                        <option value="<?php echo $rsSql['idDiciplina'] ?>"><?php echo utf8_decode($rsSql['Nome']); ?></option>
+                                        <?php
+                                    }
                                     $sql = "select * from modulo m INNER JOIN diciplinas d on m.idDiciplina = d.idDiciplina where m.idCurso = '$idCurso'";
                                     $result=$con->query($sql);
                                     while($rsResult = $result->fetch_array())
                                     {
                                         ?>
-                                        <option value="<?php echo $rsResult['idDiciplina'] ?>"><?php echo $rsResult['Nome'] ?></option>
+                                        <option value="<?php echo $rsResult['idDiciplina'] ?>"><?php echo utf8_decode($rsResult['Nome']) ?></option>
                                         <?php
                                     }
                                     ?>
+                                    <option value="0">Sem pré-requisito</option>
                                 </select>
                             </label></td>
-                        <td> <a href="alterarDisciplina.php"><i class="write icon"></i> Editar</a></td>
+                        <td><a href="editarDiciplina.php"><i class="write icon"></i> Editar</a></td>
+
                     </tr>
 
 
 
                     </tbody>
-                    <?php } ?>
+                    <?php
+                        }
+                    }
+                    ?>
                     <tfoot>
                     <tr><th><b>Carga horária total: </b></th>
                         <th></th>
@@ -197,7 +231,9 @@ include("funcoes.php");
                     </tr></tfoot>
                 </table>
 
+
                 <br>
+               <?php } ?>
 
                 <input class="ui gray right labeled icon button" name="salvar" value="Salvar" type="submit">
                       <i class="right chevron icon"></i>
@@ -233,5 +269,12 @@ include("funcoes.php");
 
 
     ?>
+<script type="text/javascript">
+
+
+
+
+</script>
+
     </body>
     </html>
