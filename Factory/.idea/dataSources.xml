@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="2611995906">
+    <data-source source="LOCAL" name="MySQL - course-factory@localhost" uuid="ce1762c2-14fc-45c3-ac73-85a2e5401302">
+      <driver-ref>mysql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://localhost/course-factory</jdbc-url>
+      <driver-properties>
+        <property name="zeroDateTimeBehavior" value="convertToNull" />
+        <property name="tinyInt1isBit" value="false" />
+        <property name="characterEncoding" value="utf8" />
+        <property name="characterSetResults" value="utf8" />
+        <property name="yearIsDateType" value="false" />
+        <property name="autoGenerateTestcaseScript" value="true" />
+        <property name="allowMultiQueries" value="true" />
+      </driver-properties>
+      <libraries />
+    </data-source>
+  </component>
+</project>
