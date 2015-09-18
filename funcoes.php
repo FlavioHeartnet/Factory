@@ -9,7 +9,11 @@ function addDiciplina($nomeDiciplina, $sigla, $cargaHora, $descricao)
     $nomeDiciplina = utf8_decode($nomeDiciplina);
     $sigla = utf8_decode($sigla);
     $cargaHora = utf8_decode($cargaHora);
+<<<<<<< HEAD
 
+=======
+    $descricao = utf8_decode($descricao);
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
 
     $sql = "INSERT INTO diciplinas(Nome, sigla, cargaHoraria, descricao)
 VALUES ('$nomeDiciplina','$sigla','$cargaHora','$descricao')";
@@ -17,7 +21,11 @@ VALUES ('$nomeDiciplina','$sigla','$cargaHora','$descricao')";
 
     if($query == true)
     {
+<<<<<<< HEAD
         echo "<script>alert('Disciplina registrada com sucesso!'); location.href='cadastro-diciplina.php';</script>";
+=======
+        echo "<script>alert('Salvo com sucesso!'); location.href='index.php';</script>";
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
         return true;
     }else
     {
@@ -38,7 +46,11 @@ function editarDiciplina($idDiciplina,$nomeDiciplina, $sigla, $cargaHora, $descr
 
     if($query == true)
     {
+<<<<<<< HEAD
         echo "<script>alert('Atualizado com sucesso!'); location.href='consultarDiciplina.php';</script>";
+=======
+        echo "<script>alert('Atualizado com sucesso!'); location.href='index.php';</script>";
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
         return true;
     }else
     {
@@ -71,7 +83,11 @@ function addCurso($nome, $mac, $dataMac, $modulo, $coordenador)
 
 }
 
+<<<<<<< HEAD
 function editarCurso($idCurso,$nome, $mac, $dataMac, $modulo, $coordenador, $idDisciplina, $nomeDis, $sigla, $cargahoraria, $requisito, $id)
+=======
+function editarCurso($idCurso,$nome, $mac, $dataMac, $modulo, $coordenador, $idDisciplina, $nomeDis, $sigla, $cargahoraria, $requisito)
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
 {
     $nome = utf8_decode($nome);
     $mac = utf8_decode($mac);
@@ -79,6 +95,7 @@ function editarCurso($idCurso,$nome, $mac, $dataMac, $modulo, $coordenador, $idD
     $modulo = utf8_decode($modulo);
     $coordenador = utf8_decode($coordenador);
 
+<<<<<<< HEAD
     if($nome != "") {
 
         for ($i = 0; $i < count($requisito); $i++) {
@@ -101,6 +118,35 @@ function editarCurso($idCurso,$nome, $mac, $dataMac, $modulo, $coordenador, $idD
 
 
     if($query == true and $sqlDisc == true)
+=======
+    for($i = 0 ; $i < count($requisito); $i++)
+    {
+
+        $re=$requisito[$i];
+        $id=$idDisciplina[$i];
+
+        $sqlModulo = "update modulo set prerequisito = '$requisito[$i]' where idDiciplina = '$idDisciplina[$i]' and idCurso = '$idCurso'";
+        $sqlModulo = $GLOBALS['con']->query($sqlModulo);
+
+
+    }
+
+    $sql = "UPDATE cursos SET Nome='$nome',codMac='$mac',dataAutoMac='$dataMac',Cordenador='$coordenador',Modulo='$modulo' WHERE idCurso = '$idCurso'";
+    $query = $GLOBALS['con']->query($sql);
+    $count = count($idDisciplina);
+    for($i = 0;$i< $count; $i++) {
+
+        if ($nomeDis != "" or $sigla !="" or $cargahoraria != "") {
+
+            $sql2 = "UPDATE diciplinas SET Nome='$nomeDis[$i]',sigla='$sigla[$i]',cargaHoraria='$cargahoraria[$i]' WHERE idDiciplina='$idDisciplina[$i]'";
+            $GLOBALS['con']->query($sql2);
+        }
+    }
+
+
+
+    if($query == true)
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
     {
         echo "<script>alert('Atualizado com sucesso!'); location.href='consultarCurso.php';</script>";
         return true;
@@ -119,11 +165,17 @@ function deleteDiciplina($idDiciplina)
     $sql= "DELETE FROM diciplinas WHERE idDiciplina = '$idDiciplina'";
     $query=$GLOBALS['con']->query($sql);
 
+<<<<<<< HEAD
     
 
     if($query == true)
     {
         echo "<script>alert('Deletado com sucesso!'); location.href='consultarDiciplina.php';</script>";
+=======
+    if($query == true)
+    {
+        echo "<script>alert('Deletado com sucesso!'); location.href='index.php';</script>";
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
         return true;
     }else
     {
@@ -195,18 +247,30 @@ if($query == true)
 
 }
 
+<<<<<<< HEAD
 function cadastraAluno($nome, $sobrenome, $idCurso, $RA, $cpf, $bolsa, $financiado, $dataMatricula)
 {
 
     $sql = "insert into aluno (nome,sobrenome,idCurso,RA,CPF,bolsa,Financiado,DataMatricula)
 VALUES('$nome', '$sobrenome','$idCurso','$RA', '$cpf', '$bolsa', '$financiado','$dataMatricula')";
+=======
+function cadastraAluno($nome, $sobrenome, $idCurso, $idTurma, $endereco, $telefone, $celular, $RA, $cpf, $RG, $bolsa, $financiado, $dataMatricula, $periodoLetivo)
+{
+
+    $sql = "insert into aluno (nome,sobrenome,idCurso,idTurma,endereco,telefone,celular,RA,CPF,RG,bolsa,Financiado,DataMatricula,PeriodoLetivo)
+VALUES('$nome', '$sobrenome', '$idCurso', '$idTurma', '$endereco', '$telefone', '$celular', '$RA', '$cpf', '$RG', '$bolsa', '$financiado','$dataMatricula', '$periodoLetivo')";
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
 
 
     $query = $GLOBALS['con']->query($sql);
 
     if($query == true)
     {
+<<<<<<< HEAD
         echo "<script>alert('Aluno cadastrado com sucesso'); location.href='cadastroAluno.php';</script>";
+=======
+        echo "<script>alert('Aluno cadastrado com sucesso'); location.href='index.php';</script>";
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
         return true;
     }else
     {
@@ -309,11 +373,19 @@ function TrocaSenha($senha, $idUsuario, $nome)
 
 }
 
+<<<<<<< HEAD
 function EditarAluno($nome, $sobrenome, $idCurso, $idTurma, $endereco, $telefone, $celular, $RA, $cpf, $RG, $bolsa, $financiado, $dataMatricula, $idAluno)
 {
 
     $sql = "UPDATE aluno SET nome='$nome',sobrenome='$sobrenome',idCurso='$idCurso',idTurma='$idTurma',endereco='$endereco',telefone='$telefone',
 celular='$celular',RA='$RA',CPF='$cpf',RG='$RG',bolsa='$bolsa',Financiado='$financiado',DataMatricula='$dataMatricula'
+=======
+function EditarAluno($nome, $sobrenome, $idCurso, $idTurma, $endereco, $telefone, $celular, $RA, $cpf, $RG, $bolsa, $financiado, $dataMatricula, $periodoLetivo, $idAluno)
+{
+
+    $sql = "UPDATE `aluno` SET nome='$nome',`sobrenome`='$sobrenome',`idCurso`='$idCurso',`idTurma`='$idTurma'`endereco`='$endereco',`telefone`='$telefone',
+`celular`='$celular',`RA`='$RA',`CPF`='$cpf',`RG`='$RG',`bolsa`='$bolsa',`Financiado`='$financiado',`DataMatricula`='$dataMatricula',`PeriodoLetivo`='$periodoLetivo'
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
 WHERE '$idAluno'";
 
 
@@ -321,7 +393,11 @@ WHERE '$idAluno'";
 
     if($query == true)
     {
+<<<<<<< HEAD
         echo "<script>alert('Aluno atualizado com sucesso'); location.href='consultarTurma.php';</script>";
+=======
+        echo "<script>alert('Aluno atualizado com sucesso'); location.href='index.php';</script>";
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
         return true;
     }else
     {
@@ -339,7 +415,11 @@ function deletaAluno($idAluno)
 
     if($query == true)
     {
+<<<<<<< HEAD
         echo "<script>alert('Aluno deletado com sucesso'); location.href='consultarTurma.php';</script>";
+=======
+        echo "<script>alert('Aluno deletado com sucesso'); location.href='index.php';</script>";
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
         return true;
     }else
     {
@@ -351,16 +431,27 @@ function deletaAluno($idAluno)
 
 }
 
+<<<<<<< HEAD
 function addTurma($nome, $idCurso, $periodo, $numAlunos)
 {
 
     $sql = "INSERT INTO turma( Nome, idCurso, PeriodoLetivo,numAlunos) VALUES ('$nome','$idCurso','$periodo','$numAlunos')";
+=======
+function addTurma($nome, $idCurso, $idAluno, $periodo)
+{
+
+    $sql = "INSERT INTO `turma`( `Nome`, `idCurso`, `idAluno`, `PeriodoLetivo`) VALUES ('$nome','$idCurso','$idAluno','$periodo')";
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
 
     $query = $GLOBALS['con']->query($sql);
 
     if($query == true)
     {
+<<<<<<< HEAD
         echo "<script>alert('Turma cadstarda com sucesso'); location.href='cadastro-turma.php';</script>";
+=======
+        echo "<script>alert('Turma cadstarda com sucesso'); location.href='index.php';</script>";
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
         return true;
     }else
     {
@@ -370,16 +461,27 @@ function addTurma($nome, $idCurso, $periodo, $numAlunos)
 
 }
 
+<<<<<<< HEAD
 function editarTurma($nome, $idCurso, $periodo, $idTurma, $numAlunos)
 {
 
     $sql = "UPDATE `turma` SET Nome='$nome',idCurso='$idCurso',PeriodoLetivo='$periodo', numAlunos='$numAlunos' WHERE idTurma = '$idTurma'";
+=======
+function editarTurma($nome, $idCurso, $idAluno, $periodo, $idTurma)
+{
+
+    $sql = "UPDATE `turma` SET Nome='$nome',idCurso='$idCurso',idAluno='$idAluno',PeriodoLetivo='$periodo' WHERE idTurma = '$idTurma'";
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
 
     $query = $GLOBALS['con']->query($sql);
 
     if($query == true)
     {
+<<<<<<< HEAD
         echo "<script>alert('Turma editada com sucesso'); location.href='consultarTurma.php';</script>";
+=======
+        echo "<script>alert('Turma editada com sucesso'); location.href='index.php';</script>";
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
         return true;
     }else
     {
@@ -399,7 +501,11 @@ function deletarTurma($idTurma)
 
     if($query == true)
     {
+<<<<<<< HEAD
         echo "<script>alert('Turma deletada com sucesso'); location.href='consultarTurma.php';</script>";
+=======
+        echo "<script>alert('Turma deletada com sucesso'); location.href='index.php';</script>";
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
         return true;
     }else
     {
@@ -410,6 +516,7 @@ function deletarTurma($idTurma)
 
 }
 
+<<<<<<< HEAD
 function addLetivo($nome, $inicio, $termino)
 {
     $sql = $GLOBALS['con']->query("INSERT INTO periodoletivo(Nome, inicio, termino) VALUES ('$nome','$inicio','$termino')");
@@ -487,3 +594,5 @@ idAD = '$id[$i]' and idAluno = '$idAluno'";
 
 }
 
+=======
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa

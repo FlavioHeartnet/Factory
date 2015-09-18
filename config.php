@@ -19,4 +19,8 @@ if (mysqli_connect_errno()) {
 /* check connection */
 
 
+<<<<<<< HEAD
 ?>
+=======
+?>
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa

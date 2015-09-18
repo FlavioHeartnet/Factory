@@ -4,7 +4,25 @@ include("funcoes.php");
 ?>
 <!DOCTYPE html>
 <html>
+<<<<<<< HEAD
 
+=======
+<head>
+    <title> Course Factory SYS - Admin </title>
+
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/semantic.css">
+    <link rel="stylesheet" type="text/css" href="css/homepage.css">
+
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
+    <script src="js/semantic.js"></script>
+    <script src="js/homepage.js"></script>
+
+
+
+</head>
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
 
 
 <body id="home">
@@ -14,7 +32,10 @@ include("funcoes.php");
         <div class="titlePage">
             Cadastro de nova turma
         </div>
+<<<<<<< HEAD
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+=======
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
         <div class="fourteen wide column">
             <div class="ui two column center aligned stackable divided grid">
 
@@ -37,7 +58,11 @@ include("funcoes.php");
                                         $query = $con->query("select * from cursos");
                                         while($rsQuery = $query->fetch_array()){
                                             ?>
+<<<<<<< HEAD
                                             <option value="<?php echo $rsQuery['idCurso']; ?>"><?php echo utf8_encode($rsQuery['Nome']); ?></option>
+=======
+                                            <option value="<?php echo $rsQuery['idCurso']; ?>"><?php echo $rsQuery['Nome']; ?></option>
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
 
                                         <?php } ?>
                                     </select>
@@ -53,6 +78,7 @@ include("funcoes.php");
                                         <option value="">Selecione Letivo</option>
                                         <i class="dropdown icon"></i>
                                         <?php
+<<<<<<< HEAD
 
                                         $sql = "select * from periodoletivo";
                                         $query = $con->query($sql);
@@ -60,6 +86,11 @@ include("funcoes.php");
                                         while($result = $query->fetch_array()){
                                             ?>
                                             <option value="<?php echo $result['idLetivo']; ?>"><?php echo $result['Nome']; ?></option>
+=======
+                                        for($i = 1;$i < 10;$i++){
+                                            ?>
+                                            <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
 
                                         <?php } ?>
                                     </select>
@@ -68,6 +99,7 @@ include("funcoes.php");
                             <br><br>
 
                         </div>
+<<<<<<< HEAD
 
                         <div class="cadastroDisciplina column">
                             <p class="cadastroLabel">Numero de alunos</p>
@@ -80,12 +112,15 @@ include("funcoes.php");
 
                         </div>
 
+=======
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
                     </div>
                     <br>
 
 
                 </div>
             </div>
+<<<<<<< HEAD
 
             <br>
             <input type="submit" name="turma" class="ui green right labeled icon button" value="Cadastrar">
@@ -107,6 +142,57 @@ if(isset($_POST['turma']))
 
     addTurma($nome, $idCurso, $periodo, $numAlunos);
 }
+=======
+<form action="<?php echo $_SERVER['PHP_SELF']; ?>">
+            <table class="ui compact celled definition table">
+                <thead>
+                <tr>
+                    <th>Turma</th>
+                    <th>Nome Completo</th>
+                    <th>CPF</th>
+                    <th>RA</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                <?php
+
+                $query = $con->query("select * from aluno");
+                $i = 1;
+                while($rsQuery = $query->fetch_array()) {
+
+                    ?>
+                    <tr>
+                        <td class="collapsing">
+                            <div class="ui fitted checkbox">
+                                <input type="checkbox" id="aluno<?php echo $i ?>"> <label for="aluno<?php echo $i ?>"></label>
+                            </div>
+                        </td>
+                        <td><?php echo $rsQuery['Nome']; ?></td>
+                        <td><?php echo $rsQuery['CPF']; ?></td>
+                        <td><?php echo $rsQuery['RA']; ?></td>
+                        <input type="hidden" value="<?php echo $rsQuery['idAluno']; ?>" name="idAluno">
+                    </tr>
+
+                <?php
+                    $i=$i+1;
+                }
+                ?>
+
+                </tbody>
+            </table>
+            <br>
+            <input type="submit" class="ui green right labeled icon button" value="Cadastrar">
+            </form>
+        </div>
+    </div>
+
+    <?php
+
+
+
+    addTurma($nome, $idCurso, $idAluno, $periodo);
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
     ?>
 
 </body>

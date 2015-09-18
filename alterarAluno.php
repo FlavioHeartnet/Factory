@@ -3,6 +3,7 @@
 include("topo.php");
 include("funcoes.php");
 
+<<<<<<< HEAD
 if(isset($_POST['idAluno'])){
 
     $idAluno = $_POST['idAluno'];
@@ -23,6 +24,30 @@ if(isset($_POST['idAluno'])){
 
 <body id="home">
 <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+=======
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Course Factory SYS - Admin </title>
+
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/semantic.css">
+    <link rel="stylesheet" type="text/css" href="css/homepage.css">
+
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
+    <script src="js/semantic.js"></script>
+    <script src="js/homepage.js"></script>
+
+
+</head>
+
+
+<body id="home">
+
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
 <div class="ui vertical feature segment">
     <div class="ui centered page grid">
         <div class="titlePage">
@@ -33,6 +58,7 @@ if(isset($_POST['idAluno'])){
 
                 <div class="cadastroDisciplina column">
                     <p class="cadastroLabel">Nome</p>
+<<<<<<< HEAD
                     <input class="inputDisciplina" name="nome" type="text" value="<?php echo $alunos['nome'] ?>" id="nomeAluno" placeholder="Ralph">
                     <br><br>
                     <p class="cadastroLabel">Sobrenome</p>
@@ -49,29 +75,96 @@ if(isset($_POST['idAluno'])){
                     <br><br>
                     <p class="cadastroLabel">Celular</p>
                     <input class="inputDisciplina" name="celular"  value="<?php echo $alunos['celular'] ?>" type="text" placeholder="digite o Celular">
+=======
+                    <input class="inputDisciplina" type="text" id="nomeAluno" placeholder="Ralph">
+                    <br><br>
+                    <p class="cadastroLabel">Sobrenome</p>
+                    <input class="inputDisciplina" type="text" id="nomeAluno" placeholder="Nogueira Silvério">
+                    <br><br>
+                    <p class="cadastroLabel">RA</p>
+                    <input class="inputDisciplina" type="text" placeholder="127635">
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
                     <br><br>
 
 
 
+<<<<<<< HEAD
+=======
+
+                    <div class="ui two column center aligned stackable  grid">
+                        <div class="cadastroDisciplina column">
+                            <p class="cadastroLabel">Curso</p>
+                            <label>
+                                <div style="text-align: left">
+                                    <select class="ui dropdown" name="modulo" style="width: 100%	">
+
+                                        <option value="">Selecione curso</option>
+                                        <i class="dropdown icon"></i>
+                                        <?php
+                                        for($i = 1;$i < 10;$i++){
+                                            ?>
+                                            <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+
+                                        <?php } ?>
+                                    </select>
+                                </div>
+                            </label>
+                        </div>
+                        <div class="cadastroDisciplina column">
+                            <p class="cadastroLabel">Turma</p>
+                            <label>
+                                <div style="text-align: left">
+                                    <select class="ui dropdown" name="modulo" style="width: 100%	">
+
+                                        <option value="">Selecione Turma</option>
+                                        <i class="dropdown icon"></i>
+                                        <?php
+                                        for($i = 1;$i < 10;$i++){
+                                            ?>
+                                            <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+
+                                        <?php } ?>
+                                    </select>
+                                </div>
+                            </label>
+                            <br><br>
+
+                        </div>
+                    </div>
+                    <br>
+
+
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
                 </div>
                 <div class="cadastroDisciplina column ">
 
 
                     <p class="cadastroLabel">CPF</p>
+<<<<<<< HEAD
                     <input class="inputDisciplina" name="cpf" value="<?php echo $alunos['CPF']; ?>" type="text" placeholder="393939888-000">
                     <br><br>
 
                     <p class="cadastroLabel">RG</p>
                     <input class="inputDisciplina" name="rg"  value="<?php echo $alunos['RG'] ?>" type="text" placeholder="digite o RG">
                     <br><br>
+=======
+                    <input class="inputDisciplina" type="text" placeholder="393939888-000">
+                    <br><br>
+
+
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
 
 
                     <div class="ui two column center aligned stackable  grid">
                         <div class="cadastroDisciplina column">
                             <p class="cadastroLabel">Bolsa</p>
                             <div style="text-align: left">
+<<<<<<< HEAD
                                 <select name="bolsa" class="ui dropdown" style="width: 100%">
                                     <option  value="<?php echo $alunos['bolsa']; ?>"><?php echo $alunos['bolsa']; ?></option>
+=======
+                                <select class="ui dropdown" style="width: 100%">
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
                                     <option value="">Bolsa</option>
                                     <option value="25">25</option>
                                     <option value="50">50</option>
@@ -82,8 +175,12 @@ if(isset($_POST['idAluno'])){
                         <div class="cadastroDisciplina column">
                             <p class="cadastroLabel">Financiado</p>
                             <div style="text-align: left">
+<<<<<<< HEAD
                                 <select name="financiado" class="ui dropdown" style="width: 100%">
                                     <option  value="<?php echo $alunos['Financiado']; ?>"><?php echo $alunos['Financiado']; ?></option>
+=======
+                                <select class="ui dropdown" style="width: 100%">
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
                                     <option value="">Financiamento</option>
                                     <option value="Sim">Sim</option>
                                     <option value="Nao">Não</option>
@@ -93,6 +190,7 @@ if(isset($_POST['idAluno'])){
                     </div>
                     <br>
 
+<<<<<<< HEAD
 
                     <div class="ui two column center aligned stackable  grid">
                         <div class="cadastroDisciplina column">
@@ -157,6 +255,19 @@ if(isset($_POST['idAluno'])){
                     <a>
                         <input type="hidden" name="idAluno" value="<?php echo $alunos['idAluno'] ?>">
                         <input type="submit" name="alterarAluno" class="ui green right labeled right chevron icon button" value="Alterar">
+=======
+                    <p class="cadastroLabel">Data Matrícula</p>
+                    <input class="inputDisciplina" type="date" placeholder="dd/mm/aaaa">
+
+                    <br><br>
+
+                    <p class="cadastroLabel">Período Letivo</p>
+                    <input class="inputDisciplina" type="text" placeholder="Período Letivo">
+                    <br><br>
+                    <br>
+                    <a>
+                        <input type="submit" class="ui green right labeled right chevron icon button" value="Alterar">
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
                     </a>
                 </div>
 
@@ -167,6 +278,7 @@ if(isset($_POST['idAluno'])){
         </div>
     </div>
 </div>
+<<<<<<< HEAD
 </form>
 
 <?php
@@ -240,3 +352,8 @@ if(isset($_POST['alterarAluno']))
 </script>
 </body>
 </html>
+=======
+
+</body>
+</html>
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa

@@ -28,6 +28,7 @@ include("funcoes.php");
 
 
 <div class="ui vertical feature segment">
+<<<<<<< HEAD
 
     <div class="ui centered page grid">
         <div class="titlePage">
@@ -35,12 +36,21 @@ include("funcoes.php");
 
         </div>
 
+=======
+    <div class="ui centered page grid">
+        <div class="titlePage">
+            Consulta de Aluno
+            <!--Colocar caixa de busca, que retorne um card com informações da disciplina - JP-->
+            <!--Flavio, criar a rotina que mostre somente o card correspondente a busca-->
+        </div>
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
         <div class="fourteen wide column">
 
             <!--Input search-->
 
             <div class="ui search">
                 <div class="ui icon input">
+<<<<<<< HEAD
                     <input class="prompt"  onkeyup="buscarNoticias(this.value)" type="text" placeholder="Procurar curso...">
                     <i class="search icon"></i>
                 </div>
@@ -52,11 +62,48 @@ include("funcoes.php");
 
 
 
+=======
+                    <input class="prompt" type="text" placeholder="Procurar curso...">
+                    <i class="search icon"></i>
+                </div>
+                <div class="results"></div>
+            </div>
+            <br><br>
+
+            <div class="cadastroCurso column">
+
+                <!--<div class="cardsDisc">
+                  Novo card-->
+                <div class="ui  cards">
+                    <div class="red cardsDisc card">
+                        <div class="content">
+                            <div class="header">Ralphilus Nogueira Silvério</div>
+                            <div class="meta">RA: 12000-0</div>
+                            <div class="description">
+                                Data Matrícula: 02/02/2014<br>
+                                Financiado: Não<br>
+
+                                <!--Colocar aqui o que for preenchido em "descrição" na página do casdastro-->
+                            </div>
+                        </div>
+                        <div class="extra content ">
+                <span class="right floated">
+                  <a class="" data-dismiss="alert">
+                      <i class="write icon"></i>
+                      Editar</a> |
+                  <a class="" data-dismiss="alert">
+                      <i class="remove icon "></i>
+                      Excluir</a>
+                </span>
+                        </div>
+                    </div>
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
 
 
 
 
                 </div><!--Fim card-->
+<<<<<<< HEAD
 
             </div>
 
@@ -190,5 +237,13 @@ if(isset($_POST['idAluno']))
 
 
 </script>
+=======
+            </div>
+        </div>
+    </div>
+</div>
+
+
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
 </body>
 </html>

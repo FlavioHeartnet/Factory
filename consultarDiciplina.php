@@ -51,7 +51,11 @@ include("funcoes.php");
 
 
                         ?>
+<<<<<<< HEAD
                         <option value="<?php echo $rsQuery['idDiciplina']; ?>"><?php echo utf8_encode($rsQuery['Nome']); ?></option>
+=======
+                        <option value="<?php echo $rsQuery['idDiciplina']; ?>"><?php echo $rsQuery['Nome']; ?></option>
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
                         <?php
                         }
                         ?>
@@ -90,7 +94,11 @@ include("funcoes.php");
                 <div class="ui  cards">
                     <div class="red cardsDisc card">
                         <div class="content">
+<<<<<<< HEAD
                             <div class="header"><?php echo utf8_encode($RsQuery['Nome']); ?></div>
+=======
+                            <div class="header"><?php echo $RsQuery['Nome']; ?></div>
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
                             <input type="hidden" value="<?php echo $RsQuery['Nome']; ?>" name="nome">
                             <div class="meta"><?php echo $RsQuery['cargaHoraria']; ?></div>
                             <input type="hidden" value="<?php echo $RsQuery['cargaHoraria']; ?>" name="horas">
@@ -103,12 +111,20 @@ include("funcoes.php");
                             </div>
                         </div>
                         <div class="ui bottom attached button">
+<<<<<<< HEAD
                             <a id="deletar" class="close" data-dismiss="alert">
+=======
+                            <a class="close" data-dismiss="alert">
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
                                 <i class="remove icon "></i>
                                 Excluir disciplina </a>
                         </div>
                         <div class="ui bottom attached button">
+<<<<<<< HEAD
                             <a id="editar" class="close" data-dismiss="alert" href="#">
+=======
+                            <a class="close" data-dismiss="alert" href="#">
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
                                 <i class="write icon "></i>
                                 Editar disciplina </a>
                         </div>
@@ -116,10 +132,13 @@ include("funcoes.php");
                 </div>
                 </form>
             </div>
+<<<<<<< HEAD
                 <form  id="deletarDisciplina" action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
 
                     <input type="hidden" name="deletarDisc" value="<?php echo $RsQuery['idDiciplina'] ?>">
                 </form>
+=======
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
 
             <?php
 
@@ -129,6 +148,7 @@ include("funcoes.php");
         </div>
     </div>
 
+<<<<<<< HEAD
 <?php
 if(isset($_POST['deletarDisc']))
 {
@@ -142,17 +162,26 @@ if(isset($_POST['deletarDisc']))
 </body>
 <script>
 $('#editar').click(function(){
+=======
+
+</body>
+<script>
+$('.close').click(function(){
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
 
     $('#alterar').submit();
 
 });
 
+<<<<<<< HEAD
 $('#deletar').click(function(){
 
     $('#deletarDisciplina').submit();
 
 });
 
+=======
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
 
 </script>
 </html>

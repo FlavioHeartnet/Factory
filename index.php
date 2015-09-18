@@ -10,7 +10,11 @@ include('funcoes.php');
     <link rel="stylesheet" type="text/css" href="css/semantic.css">
     <link rel="stylesheet" type="text/css" href="css/homepage.css">
 
+<<<<<<< HEAD
     <script src="js/bibliotecas.js"></script>
+=======
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
     <script src="js/semantic.js"></script>
     <script src="js/homepage.js"></script>
 
@@ -95,12 +99,15 @@ if(isset($_POST['usuario'])) {
         })
 
 
+<<<<<<< HEAD
 
 
 
 
 
 
+=======
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
     })
 
 
@@ -109,4 +116,8 @@ if(isset($_POST['usuario'])) {
 
 </body>
 
+<<<<<<< HEAD
 </html>
+=======
+</html>
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa

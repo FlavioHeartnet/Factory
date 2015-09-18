@@ -6,7 +6,36 @@ include("funcoes.php");
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
+<<<<<<< HEAD
 
+=======
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Diciplinas do Curso</title>
+    <link rel="stylesheet" type="text/css" href="css/semantic.css">
+    <link rel="stylesheet" type="text/css" href="css/homepage.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            function removeCampo() {
+                $(".removerCampo").unbind("click");
+                $(".removerCampo").bind("click", function () {
+                    if($("tr.linhas").length > 1){
+                        $(this).parent().parent().remove();
+                    }
+                });
+            }
+
+            $(".adicionarCampo").click(function () {
+                novoCampo = $("tr.linhas:first").clone();
+                novoCampo.find("input").val("");
+                novoCampo.insertAfter("tr.linhas:last");
+                removeCampo();
+            });
+        });
+    </script>
+</head>
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
 <body id="home">
 
 <div class="ui vertical feature segment">
@@ -33,7 +62,11 @@ include("funcoes.php");
 
 
                                 ?>
+<<<<<<< HEAD
                                 <option value="<?php echo $rsQuery['idCurso']; ?>"><?php echo utf8_encode($rsQuery['Nome']); ?></option>
+=======
+                                <option value="<?php echo $rsQuery['idCurso']; ?>"><?php echo $rsQuery['Nome']; ?></option>
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
                             <?php
                             }
                             ?>
@@ -41,14 +74,22 @@ include("funcoes.php");
                         <i class="search icon"> </i>
 
                     </div>
+<<<<<<< HEAD
                     <input type="submit" name="enviar" class="ui green right labeled icon button" value="Pesquisar">
+=======
+                    <input type="submit" class="ui green right labeled icon button" value="Pesquisar">
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
             </form>
             <div class="results"></div>
         </div>
         <br><br>
 
         <?php
+<<<<<<< HEAD
         if(isset($_POST['enviar'])) {
+=======
+        if(isset($_POST['busca'])) {
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
             $buscas = $_POST['busca'];
 
             $query =  $con->query("select * from cursos where idCurso = '$buscas'");
@@ -58,11 +99,19 @@ include("funcoes.php");
 
 
            ?>
+<<<<<<< HEAD
         <form id="form" method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
                 <div class="cadastroDisciplina column">
 
                     Diciplinas do modulo/Semestre<br>
 
+=======
+
+                <div class="cadastroDisciplina column">
+
+                    <p>Diciplinas do modulo/Semestre
+                    <form id="form" method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
                     <div class="ui icon input">
                         <select  class="dropdown buscaMateria" name="modulo">
                             <option value="">Selecione o Modulo</option>
@@ -81,13 +130,21 @@ include("funcoes.php");
                         </select>
                         <i class="search icon"></i>
 
+<<<<<<< HEAD
                     </div>
+=======
+                    </div></p>
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
 
 
 
                         <input type="hidden" value="<?php echo $buscas ?>" name="idCurso">
                         <div id="tudo">
+<<<<<<< HEAD
                             <table style="margin-top: 20px" class="table" border="0" cellpadding="2" cellspacing="4">
+=======
+                            <table class="table" border="0" cellpadding="2" cellspacing="4">
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
 
 
                                 <tr>
@@ -126,6 +183,7 @@ include("funcoes.php");
                                     <td  align="right" colspan="4"><input style="margin-top: 50px" type="submit" name="gravar" class="ui green right labeled icon button" value="Cadastrar"></td>
                                 </tr>
                             </table>
+<<<<<<< HEAD
 
 
 
@@ -134,11 +192,25 @@ include("funcoes.php");
         </form>
             <?php
 
+=======
+                    </form>
+
+
+                </div>
+
+            <?php
+
+
+
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
         }// fim da pesquisa do if Buscar
         ?>
 
     </div>
+<<<<<<< HEAD
     <a href="consultarCurso.php" class= "ui green right labeled icon button">Consultar Curso<i class="ui white icon"></i></a>
+=======
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
 </div>
 <?php
 if(isset($_POST['gravar'])) {
@@ -149,6 +221,7 @@ if(isset($_POST['gravar'])) {
     addModulo($curso, $modulo, $diciplina);
 }
 ?>
+<<<<<<< HEAD
 <script type="text/javascript">
     $(function () {
         function removeCampo() {
@@ -171,3 +244,13 @@ if(isset($_POST['gravar'])) {
 
 </body>
 </html>
+=======
+
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+
+
+</body>
+</html>
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa

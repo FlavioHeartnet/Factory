@@ -6,7 +6,23 @@ include("funcoes.php");
 
 <!DOCTYPE html>
 <html>
+<<<<<<< HEAD
 
+=======
+<head>
+    <title> Course Factory SYS - Admin </title>
+
+    <link rel="stylesheet" type="text/css" href="css/semantic.css">
+    <link rel="stylesheet" type="text/css" href="css/homepage.css">
+
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
+    <script src="js/semantic.js"></script>
+    <script src="js/homepage.js"></script>
+
+
+</head>
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
 
 
 <body id="home">
@@ -44,11 +60,30 @@ include("funcoes.php");
                         </a>
                     </p>
                 </div>
+<<<<<<< HEAD
 
+=======
+                <div class="column">
+                    <div class="ui icon header">
+                        <i class="user icon"></i>
+                        Editar Disciplina
+                    </div>
+                    <p>Nesta area você pode alterar informações das diciplinas cadastradas</p>
+                    <p>
+                        <a class="ui button" href="#">
+                            Editar
+                        </a>
+                    </p>
+                </div>
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
             </div>
         </div>
     </div>
 </div>
 
 </body>
+<<<<<<< HEAD
 </html>
+=======
+</html>
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa

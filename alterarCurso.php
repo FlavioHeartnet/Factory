@@ -4,7 +4,24 @@ include("funcoes.php");
 ?>
     <!DOCTYPE html>
     <html>
+<<<<<<< HEAD
 
+=======
+    <head>
+        <title> Course Factory SYS - Admin </title>
+
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="css/semantic.css">
+        <link rel="stylesheet" type="text/css" href="css/homepage.css">
+
+
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
+        <script src="js/semantic.js"></script>
+        <script src="js/homepage.js"></script>
+
+
+    </head>
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
 
 
     <body id="home">
@@ -37,7 +54,11 @@ include("funcoes.php");
 
                     <div class="cadastroDisciplina column">
                         <p class="cadastroLabel">Nome do Curso</p>
+<<<<<<< HEAD
                         <input class="inputDisciplina" type="text" id="NomeCurso" name="nome" placeholder="Nome do Curso" value="<?php echo utf8_encode($busca['Nome']) ?>">
+=======
+                        <input class="inputDisciplina" type="text" id="NomeCurso" name="nome" placeholder="Nome do Curso" value="<?php echo $busca['Nome'] ?>">
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
                         <br><br>
                         <p class="cadastroLabel">Código do Curso</p>
                         <input class="inputDisciplina" type="text" id="CodCurso" name="codCurso" placeholder="Ex: 012012ADM" value="<?php echo $busca['idCurso'] ?>">
@@ -113,7 +134,11 @@ include("funcoes.php");
 
                 <?php
 
+<<<<<<< HEAD
                 $sql = "select * from modulo m inner join diciplinas d on d.idDiciplina = m.idDiciplina where m.idCurso = '$idCurso' ORDER BY semestre";
+=======
+                $sql = "select * from modulo m inner join diciplinas d on d.idDiciplina = m.idDiciplina where m.idCurso = '$idCurso'";
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
 
 
 
@@ -155,6 +180,7 @@ include("funcoes.php");
                             </label>
                             <input type="hidden" name="idDiciplina[]" value="<?php echo $rsBuscaModulo['idDiciplina'];?>">
                             <input type="hidden" name="idCurso" value="<?php echo $rsBuscaModulo['idCurso'];?>">
+<<<<<<< HEAD
                             <input type="hidden" name="idModulo[]" value="<?php echo $rsBuscaModulo['idModulo'];?>">
                         </td>
                         <td><label>
@@ -172,6 +198,12 @@ include("funcoes.php");
 
 
                                 </select>
+=======
+                        </td>
+                        <td><label>
+                                <input type="text" name="nomedis[]" value="<?php echo $rsBuscaModulo['Nome']; ?>"
+                                       class="inputDisciplina">
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
                             </label></td>
                         <td><label>
                                 <input type="text" name="carga[]" value="<?php echo $rsBuscaModulo['cargaHoraria']; ?>"
@@ -212,7 +244,11 @@ include("funcoes.php");
                                     <option value="0">Sem pré-requisito</option>
                                 </select>
                             </label></td>
+<<<<<<< HEAD
 
+=======
+                        <td><a href="editarDiciplina.php"><i class="write icon"></i> Editar</a></td>
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
 
                     </tr>
 
@@ -223,12 +259,20 @@ include("funcoes.php");
                         }
                     }
                     ?>
+<<<<<<< HEAD
                    <!-- <tfoot>
+=======
+                    <tfoot>
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
                     <tr><th><b>Carga horária total: </b></th>
                         <th></th>
                         <th>130 horas</th>
                         <th></th>
+<<<<<<< HEAD
                     </tr></tfoot>-->
+=======
+                    </tr></tfoot>
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
                 </table>
 
 
@@ -258,6 +302,7 @@ include("funcoes.php");
             $dataMac = $_POST['dataAutoMac'];
             $coordenador = $_POST['coordenador'];
             $idDisciplina = $_POST['idDiciplina'];
+<<<<<<< HEAD
             $nomeDis = $_POST['disciplina'];
             $sigla = $_POST['sigla'];
             $cargahoraria = $_POST['carga'];
@@ -265,6 +310,14 @@ include("funcoes.php");
             $id = $_POST['idModulo'];
 
             editarCurso($idCurso,$nome, $mac, $dataMac, $modulo, $coordenador, $idDisciplina, $nomeDis, $sigla, $cargahoraria, $requisito, $id);
+=======
+            $nomeDis = $_POST['nomedis'];
+            $sigla = $_POST['sigla'];
+            $cargahoraria = $_POST['carga'];
+            $requisito = $_POST['requisito'];
+
+            editarCurso($idCurso,$nome, $mac, $dataMac, $modulo, $coordenador, $idDisciplina, $nomeDis, $sigla, $cargahoraria, $requisito);
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
 
         }
 
@@ -278,4 +331,8 @@ include("funcoes.php");
 </script>
 
     </body>
+<<<<<<< HEAD
     </html>
+=======
+    </html>
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa

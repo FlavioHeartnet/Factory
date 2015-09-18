@@ -55,7 +55,11 @@ include("funcoes.php");
                         while($buscaCurso = $rssql->fetch_array()){
 
                             ?>
+<<<<<<< HEAD
                             <option value="<?php echo $buscaCurso['idCurso']; ?>"><?php echo utf8_encode($buscaCurso['Nome']);  ?></option>
+=======
+                            <option value="<?php echo $buscaCurso['idCurso']; ?>"><?php echo $buscaCurso['Nome'];  ?></option>
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
 
                         <?php
 
@@ -96,6 +100,14 @@ include("funcoes.php");
                             $rssql =$con->query($sql);
 
 
+<<<<<<< HEAD
+=======
+                        }else
+                        {
+                            $sql = "select * from cursos where 1";
+                            $rssql =  $con->query($sql);
+
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
                         }
 
                         while($buscaCurso = $rssql->fetch_array()){
@@ -107,7 +119,11 @@ include("funcoes.php");
                         <div class="ui  cards">
                             <div class="red cardsDisc card">
                                 <div class="content">
+<<<<<<< HEAD
                                     <div class="header"><?php echo utf8_encode($buscaCurso['Nome']); ?></div>
+=======
+                                    <div class="header"><?php echo $buscaCurso['Nome']; ?></div>
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
                                     <div class="meta">Coordenador: <?php echo $buscaCurso['Cordenador']; ?></div>
                                     <div class="description">
                                         Modulos: <?php echo $modulo ?><br>
@@ -150,8 +166,13 @@ include("funcoes.php");
                   <a class="excluir" data-dismiss="alert">
                       <i class="remove icon "></i>
                       Excluir</a>
+<<<<<<< HEAD
 
                  </form></span>
+=======
+                </span>
+                 </form>
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
                                 </div>
                             </div>
 

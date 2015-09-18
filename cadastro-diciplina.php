@@ -6,7 +6,23 @@ include("funcoes.php");
 
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/html">
+<<<<<<< HEAD
 
+=======
+<head>
+    <title> Course Factory SYS - Admin </title>
+
+    <link rel="stylesheet" type="text/css" href="css/semantic.css">
+    <link rel="stylesheet" type="text/css" href="css/homepage.css">
+
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
+    <script src="js/semantic.js"></script>
+    <script src="js/homepage.js"></script>
+
+
+</head>
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
 
 
 <body id="home">
@@ -65,11 +81,22 @@ if(isset($_POST['gravar']))
     $nomeDiciplina = $_POST['nome'];
     $sigla = $_POST['sigla'];
     $cargaHora = $_POST['horas'];
+<<<<<<< HEAD
     $descricao = $_POST['desc'];
 
     addDiciplina($nomeDiciplina, $sigla, $cargaHora, $descricao);
+=======
+    $preRequisito  = $_POST['requisito'];
+    $descricao = $_POST['desc'];
+    echo "<script>alert($descricao)</script>";
+    addDiciplina($nomeDiciplina, $sigla, $cargaHora, $preRequisito, $descricao);
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
 }
 ?>
 
 </body>
+<<<<<<< HEAD
 </html>
+=======
+</html>
+>>>>>>> 258484e41c84ceb14ea4a1fd2afdadf94a49fefa
