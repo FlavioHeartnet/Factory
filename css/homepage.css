@@ -1,0 +1,221 @@
+/*******************************
+            Global
+*******************************/
+
+html {
+  font-size: 14px;
+}
+
+
+/*******************************
+            Global
+*******************************/
+
+#home #dash .menu .right.menu > .mobile.item {
+  display: none;
+}
+
+/*--------------
+    Masthead
+---------------*/
+
+#home .masthead {
+  margin: 0em;
+  padding: 15px 5px 5px 5px;
+}
+
+#home .navbar{
+
+  background-color: #9a171f;
+  height: 125px;
+  border-bottom: 4px solid #4a4a4a;
+
+}
+
+#dash .navbar{
+
+  background-color: #9a171f;
+  height: 80px;
+  border-bottom: 4px solid #4a4a4a;
+  padding-bottom: 1px;
+  margin-top: -4px;
+
+}
+
+#home .masthead .column {
+  position: relative;
+}
+#home .masthead .information {
+
+}
+#home .masthead .information p {
+  max-width: 600px;
+}
+#home .masthead .image {
+  position: absolute;
+  left: 0%;
+  bottom: -110px;
+}
+
+#home .masthead .img {
+
+  left: 0%;
+  bottom: -30px;
+  width: 200px;
+}
+
+/*--------------
+    Ribbons
+---------------*/
+
+#home .segment h1 {
+  font-size: 3em;
+  margin-bottom: 1em;
+}
+
+#home .vertical.segment {
+  padding: 12rem 0rem;
+}
+
+#home .feature.segment {
+  margin: 0em;
+  padding: 6rem 0rem;
+}
+#home .feature.segment p {
+  min-height: 50px;
+}
+
+#home .selection.list {
+  margin: 0em -0.5em;
+}
+
+#home .logo.row {
+  height: 10rem;
+}
+
+/*--------------
+    Footer
+---------------*/
+
+#home .footer.segment {
+  background-color: #000000;
+  padding: 3rem 0rem;
+}
+
+
+/*******************************
+          Responsive
+*******************************/
+
+/* Mobile Only */
+@media only screen and (max-width : 768px) {
+
+  #home .menu .right.menu > .item {
+    display: none;
+  }
+
+  #home .menu .right.menu > .mobile.item {
+    display: block;
+  }
+  #home .menu .right.menu > .mobile.item .menu {
+    left: auto;
+    right: 0em;
+  }
+
+  #home h1 {
+    font-size: 1.5em;
+  }
+  #home .masthead.segment .information {
+    margin-left: 170px;
+  }
+
+  #home .masthead.segment .image {
+    width: 170px;
+  }
+
+  #home .masthead.segment .button {
+    font-size: 1rem;
+  }
+
+  #home .overview .divided.grid .header .icon {
+    font-size: 1.5em;
+  }
+
+  #home .overview .divided.grid .header + p {
+    min-height: 0px;
+  }
+
+  #home .masthead.segment .column {
+    font-size: 0.7rem;
+  }
+
+  #home .masthead.segment .column p {
+    display: none;
+  }
+
+  #home .selection.list .right.floated {
+    display: none;
+  }
+}
+
+div.cadastroDisciplina{
+  width: 350px;  
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.inputDisciplina{
+  margin: 0em;
+  width: 100%;
+  outline: none;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  text-align: left;
+  line-height: 1.2142em;
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  padding: 0.67861em 1em;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  color: rgba(0, 0, 0, 0.8);
+  border-radius: 0.2857rem;
+  -webkit-transition: background-color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  box-shadow: none;
+}
+
+.cardsDisc{
+  width: 100%!important;
+}
+
+.inputDisciplinaComLabel{
+  margin: 0em;
+  width: 80%;
+  outline: none;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+  text-align: left;
+  line-height: 1.2142em;
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  padding: 0.67861em 1em;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  color: rgba(0, 0, 0, 0.8);
+  border-radius: 0.2857rem;
+  -webkit-transition: background-color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  box-shadow: none;
+}
+
+.titlePage{
+
+  font-size: 2rem;
+  margin-top: -3rem;
+  margin-bottom: 2rem;
+  font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  text-align: center;
+
+}
+
+.cadastroLabel{
+  text-align: left;
+  min-height: 0px!important;
+}
