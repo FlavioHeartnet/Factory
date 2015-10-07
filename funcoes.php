@@ -446,16 +446,16 @@ function editaLetivo($idLetivo, $nome, $inicio, $termino)
 }
 
 
-function alunosDisc($idAluno, $idDiciplina, $carga, $requisito,$situacao, $conclusao, $semestre, $id)
+function alunosDisc($idTurma, $idDiciplina, $carga, $requisito,$situacao, $conclusao, $semestre, $id)
 {
     $count = count($id);
-    $sql = "SELECT * FROM alunos_disciplinas where idAluno = '$idAluno'";
+    $sql = "SELECT * FROM alunos_disciplinas where idTurma = '$idTurma'";
     $query2 = $GLOBALS['con']->query($sql);
     if($query2->num_rows<=0)
     {
         for($i = 0 ; $i < $count; $i++) {
-            $sql2 = "INSERT INTO alunos_disciplinas( idDiciplina, idAluno, cargaHoraria, prerequisito, situacao, dataConclusao, semestre)
- VALUES ('$idDiciplina[$i]','$idAluno','$carga[$i]','$requisito[$i]','$situacao[$i]','$conclusao[$i]','$semestre[$i]')";
+            $sql2 = "INSERT INTO alunos_disciplinas( idDiciplina, idTurma, cargaHoraria, prerequisito, situacao, PeriodoLetivo, semestre)
+ VALUES ('$idDiciplina[$i]','$idTurma','$carga[$i]','$requisito[$i]','$situacao[$i]','$conclusao[$i]','$semestre[$i]')";
             $query = $GLOBALS['con']->query($sql2);
         }
 
@@ -463,11 +463,11 @@ function alunosDisc($idAluno, $idDiciplina, $carga, $requisito,$situacao, $concl
     {
         for($i = 0 ; $i < $count; $i++) {
 
-           echo "<script>alert('$idAluno, $idDiciplina[$i], $carga[$i], $requisito[$i],$situacao[$i], $conclusao[$i], $semestre[$i], $id[$i]')</script>";
+           echo "<script>alert('$idTurma, $idDiciplina[$i], $carga[$i], $requisito[$i],$situacao[$i], $conclusao[$i], $semestre[$i], $id[$i]')</script>";
 
-            $sql2 = "UPDATE alunos_disciplinas SET idDiciplina='$idDiciplina[$i]',idAluno='$idAluno',cargaHoraria='$carga[$i]',
-prerequisito='$requisito[$i]',situacao='$situacao[$i]',dataConclusao='$conclusao[$i]', semestre='$semestre[$i]' WHERE
-idAD = '$id[$i]' and idAluno = '$idAluno'";
+            $sql2 = "UPDATE alunos_disciplinas SET idDiciplina='$idDiciplina[$i]',idTurma='$idTurma',cargaHoraria='$carga[$i]',
+prerequisito='$requisito[$i]',situacao='$situacao[$i]',PeriodoLetivo='$conclusao[$i]', semestre='$semestre[$i]' WHERE
+idAD = '$id[$i]' and idTurma = '$idTurma'";
             $query = $GLOBALS['con']->query($sql2);
         }
 

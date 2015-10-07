@@ -14,18 +14,16 @@ $idUsuario = $rsQuery['idUsuario'];
     <title> Course Factory SYS - Admin </title>
 
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="css/semantic.css">
+    <link rel="stylesheet" type="text/css" href="Semantic-UI-1.10.4/dist/semantic.css">
     <link rel="stylesheet" type="text/css" href="css/homepage.css">
 
 
-    <script src="js/bibliotecas.js"></script>
-    <script src="js/semantic.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
+    <script src="Semantic-UI-1.10.4/dist/semantic.js"></script>
     <script src="js/homepage.js"></script>
-    <script src="js/bootstrap.min.js"></script>
 
 
 </head>
-
 <div class="ui navbar inverted">
     <div  class="ui centered page grid">
         <br>
