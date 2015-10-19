@@ -14,22 +14,22 @@ $idUsuario = $rsQuery['idUsuario'];
     <title> Course Factory SYS - Admin </title>
 
     <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="css/semantic.css">
+    <link rel="stylesheet" type="text/css" href="Semantic-UI-1.10.4/dist/semantic.css">
     <link rel="stylesheet" type="text/css" href="css/homepage.css">
+    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css">
 
 
-    <script src="js/bibliotecas.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
     <script src="js/semantic.js"></script>
     <script src="js/homepage.js"></script>
-    <script src="js/bootstrap.min.js"></script>
 
 
 </head>
-
 <div class="ui navbar inverted">
     <div  class="ui centered page grid">
         <br>
-        <img class="ui small image" src="img/logotipo.png" style="margin-top: 25px;">
+        <img class="ui medium image" src="img/logotipo.png" style="margin-top: 25px;">
     </div>
 </div>
 
@@ -52,6 +52,7 @@ $idUsuario = $rsQuery['idUsuario'];
                         <a class="item" href="consultarTurma.php">Disciplinas da turma</a>
                         <a class="item" href="cadastro-turma.php">Cadastro de Turmas</a>
                         <a class="item" href="cadastro-letivo.php">Cadastro de Periodo Letivo</a>
+                        <a class="item" href="gradeTurma.php">Grade Turma</a>
 
 
                     </div>

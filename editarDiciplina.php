@@ -19,6 +19,7 @@ if(isset($_POST['id'])) {
     $sigla = $_POST['sigla'];
     $descricao = $_POST['descricao'];
     $id = $_POST['id'];
+    $tipo = $_POST['tipo'];
 }
     ?>
 
@@ -34,7 +35,7 @@ if(isset($_POST['id'])) {
 
                     <div class="cadastroDisciplina column">
                         <p class="cadastroLabel">Nome da Disciplina</p>
-                        <input class="inputDisciplina" value="<?php echo $nome ?>" name="nome" type="text"
+                        <input class="inputDisciplina" value="<?php echo utf8_encode($nome);?>" name="nome" type="text"
                                placeholder="Nome">
                         <br><br>
 
@@ -57,6 +58,29 @@ if(isset($_POST['id'])) {
                         <p class="cadastroLabel">Descrição</p>
                         <input class="inputDisciplina" value="<?php echo $descricao ?>" type="text" name="desc"
                                placeholder="Descricao">
+                        <br><br>
+
+                        <br>
+
+                        <p class="cadastroLabel">Tipo</p>
+                        <label>
+                            <select name="tipo" class="ui dropdown">
+
+                                <?php  switch($tipo)
+                                {
+                                    case 1: $texto = "Ímpar";
+                                        break;
+                                    case 2: $texto = "par";
+                                        break;
+                                    default: $texto = "Valor incorreto";
+
+                                } ?>
+                                <option value="<?php echo $tipo ?>"><?php echo $texto?></option>
+                                <option value="1">Ímpar</option>
+                                <option value="2">Par</option>
+
+                            </select>
+                        </label>
                         <br><br>
 
                         <br>

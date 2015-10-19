@@ -6,11 +6,10 @@ if(isset($_POST['gravar']))
 {
     $nome = $_POST['nome'];
     $idCurso = $_POST['curso'];
-    $periodo = $_POST['periodo'];
     $numAlunos = $_POST['numAluno'];
     $idTurma = $_POST['idTurma'];
 
-    editarTurma($nome, $idCurso, $periodo, $idTurma, $numAlunos);
+    editarTurma($nome, $idCurso, $idTurma, $numAlunos);
 
 }elseif(isset($_POST['deletar']))
 {
@@ -59,7 +58,7 @@ while($buscaTurma = $query->fetch_array()){
                         <input class="inputDisciplina" name="nome" type="text" value="<?php echo $buscaTurma['Nome'] ?>" placeholder="Nome da Turma">
                         <br><br>
 
-                        <div class="ui two column center aligned stackable  grid">
+                        <div class="cadastroDisciplina column">
                             <div class="cadastroDisciplina column">
                                 <p class="cadastroLabel">Curso</p>
                                 <label>
@@ -87,52 +86,23 @@ while($buscaTurma = $query->fetch_array()){
                                     </div>
                                 </label>
                             </div>
-                            <div class="cadastroDisciplina column">
-                                <p class="cadastroLabel">Período Letivo</p>
-                                <label>
-                                    <div style="text-align: left">
-                                        <select class="ui dropdown" name="periodo" style="width: 100%">
-                                            <?php
-                                            $letivo = $buscaTurma['PeriodoLetivo'];
-                                            $letivo = $con->query("select * from periodoletivo where idLetivo = '$letivo'");
-
-                                            $rsQuery = $letivo->fetch_array();
 
 
-                                            ?>
-                                            <option value="<?php echo $rsQuery['idLetivo'] ?>"><?php echo $rsQuery['Nome'] ?></option>
-                                            <i class="dropdown icon"></i>
-                                            <?php
 
-                                            $sql = "select * from periodoletivo";
-                                            $query = $con->query($sql);
-
-                                            while($result = $query->fetch_array()){
-                                                ?>
-                                                <option value="<?php echo $result['idLetivo']; ?>"><?php echo $result['Nome']; ?></option>
-
-                                            <?php } ?>
-                                        </select>
-                                    </div>
-                                </label>
-                                <br><br>
-
-                            </div>
-
-                            <div class="cadastroDisciplina column">
-                                <p class="cadastroLabel">Numero de alunos</p>
-                                <label>
-                                    <div style="text-align: left">
-                                        <input type="number" autocomplete="off" value="<?php echo $buscaTurma['numAlunos'];  ?>" data-mask = "0000" class="inputDisciplina" name="numAluno">
-                                    </div>
-                                </label>
-                                <br><br>
-
-                            </div>
 
                         </div>
                         <br>
 
+
+                    </div>
+                    <div class="cadastroDisciplina column">
+                        <p class="cadastroLabel">Numero de alunos</p>
+
+                        <div style="text-align: left">
+                            <input type="number" autocomplete="off" value="<?php echo $buscaTurma['numAlunos'];  ?>" data-mask = "0000" class="inputDisciplina" name="numAluno">
+                        </div>
+
+                        <br><br>
 
                     </div>
                 </div>

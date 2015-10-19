@@ -13,8 +13,6 @@ while($rsSql = $sql->fetch_array())
     $curso = $GLOBALS['con']->query("SELECT * FROM cursos WHERE idCurso =  '$idCurso'");
     $cursos = $curso->fetch_array();
 
-    $letivo = $GLOBALS['con']->query("SELECT * FROM periodoletivo WHERE idLetivo =  '$periodoLetivo'");
-    $periodo = $letivo->fetch_array();
 
     ?>
 
@@ -22,9 +20,9 @@ while($rsSql = $sql->fetch_array())
         <div class="red cardsDisc card">
             <div class="content">
                 <div class="header"><?php echo utf8_encode($rsSql['Nome'])?></div>
-                <div class="meta">Curso: <?php echo $cursos['Nome']; ?></div>
+                <div class="meta">Curso: <?php echo utf8_encode($cursos['Nome']); ?></div>
                 <div class="description">
-                    Periodo Letivo: <?php echo $periodo['Nome']; ?><br>
+
                     Numeros de Alunos: <?php echo utf8_encode($rsSql['numAlunos']) ?><br>
 
                     <!--Colocar aqui o que for preenchido em "descrição" na página do casdastro-->

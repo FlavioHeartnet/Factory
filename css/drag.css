@@ -1,0 +1,120 @@
+body {
+
+    font: 14px/18px Arial, sans-serif;
+}
+p {
+    margin: 0;
+}
+
+
+/*menu disciplinas*/
+.sidebar-menus {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    width: 20%;
+}
+.draggable-elements {
+    margin-top: 20px;
+    position: relative;
+    z-index: 2;
+}
+.draggable-elements .element {
+    padding: 5px;
+    vertical-align: top;
+    min-height: 43px;
+    z-index: 1;
+}
+.draggable-elements .element .icons-fonts {
+    opacity: 0.4;
+    float: left;
+}
+.draggable-elements .element .icons-fonts.move {
+    cursor: move;
+    width: 16px;
+    height: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 22px;
+}
+.draggable-elements .element .name,
+.draggable-elements .element .type {
+    padding-left: 20px;
+}
+.draggable-elements .element .name {
+    color: #FFF;
+    word-break: break-all;
+    font-size: 17px;
+}
+.draggable-elements .element .f-type {
+    font-size: 10px;
+    opacity: 0.4;
+    padding-left: 20px;
+}
+.draggable-elements .element .close,
+.draggable-elements .element .jqTransformSelectWrapper {
+    display: none;
+}
+.draggable-elements .element.ui-draggable-dragging {
+    width: 250px !important;
+
+
+
+/* campo dragdrop*/
+}
+.dragdrop-field {
+    margin: 10px 0 0 15px;
+    width: 350px;
+}
+.dragdrop-field .dragdrop-box {
+    background-color: #FFF;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    border-radius: 6px;
+    box-shadow: inset 0 0 2px #333;
+}
+.dragdrop-field .dragdrop-box #dragndropT1,#dragndropT2 ,#dragndropT3 ,#dragndropT4 {
+    background: #FFF;
+    border: 2px dashed #FFF;
+    margin: 4px;
+    min-height: 150px;
+}
+.dragdrop-field .dragdrop-box #dragndropT1 > p ,#dragndropT2 > p , #dragndropT3 > p , #dragndropT4 > p {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    color: #BBB;
+    line-height: 97px;
+    font-weight: bold;
+}
+.dragdrop-field .dragdrop-box #dragndropT1.highlight , #dragndropT2.highlight , #dragndropT3.highlight ,#dragndropT4.highlight {
+    border: 2px dashed #ccb3b1;
+    background-color: #F2F2F2;
+}
+.dragdrop-field .dragdrop-box #dragndropT1.highlight > p , #dragndropT2.highlight > p , #dragndropT3.highlight > p ,  #dragndropT4.highlight > p{
+    color: #646665;
+}
+.dragdrop-field .dragdrop-box #dragndropT1 li , #dragndropT2 li ,#dragndropT3 li ,  #dragndropT4 li {
+    position: relative;
+}
+.dragdrop-field .dragdrop-box #dragndropT1 li .close ,#dragndropT2 li .close ,#dragndropT3 li .close ,#dragndropT4 li .close {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    margin-top: -10px;
+    color: #000;
+    opacity: 0.5;
+    font-weight: bold;
+    font-size: 20px;
+}
+.dragdrop-field .dragdrop-box #dragndropT1 li .close:hover ,#dragndropT2 li .close:hover ,  #dragndropT1 li .close:hover ,#dragndropT4 li .close:hover {
+    color: #FFF;
+    opacity: 1;
+}
+.dragdrop-field .dragdrop-box #dragndropT1 li .move:before ,#dragndropT2 li .move:before , #dragndropT3 li .move:before ,#dragndropT4 li .move:before {
+    margin-left: 4px;
+}

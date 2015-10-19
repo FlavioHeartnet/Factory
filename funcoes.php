@@ -4,15 +4,15 @@ include('config.php');
 
 
 
-function addDiciplina($nomeDiciplina, $sigla, $cargaHora, $descricao)
+function addDiciplina($nomeDiciplina, $sigla, $cargaHora, $descricao, $tipo)
 {
     $nomeDiciplina = utf8_decode($nomeDiciplina);
     $sigla = utf8_decode($sigla);
     $cargaHora = utf8_decode($cargaHora);
 
 
-    $sql = "INSERT INTO diciplinas(Nome, sigla, cargaHoraria, descricao)
-VALUES ('$nomeDiciplina','$sigla','$cargaHora','$descricao')";
+    $sql = "INSERT INTO diciplinas(Nome, sigla, cargaHoraria, descricao, tipo)
+VALUES ('$nomeDiciplina','$sigla','$cargaHora','$descricao', '$tipo')";
     $query = $GLOBALS['con']->query($sql);
 
     if($query == true)
@@ -26,14 +26,14 @@ VALUES ('$nomeDiciplina','$sigla','$cargaHora','$descricao')";
     }
 }
 
-function editarDiciplina($idDiciplina,$nomeDiciplina, $sigla, $cargaHora, $descricao)
+function editarDiciplina($idDiciplina,$nomeDiciplina, $sigla, $cargaHora, $descricao, $tipo)
 {
     $nomeDiciplina = utf8_decode($nomeDiciplina);
     $sigla = utf8_decode($sigla);
     $cargaHora = utf8_decode($cargaHora);
     $descricao = utf8_decode($descricao);
 
-    $sql = "UPDATE `diciplinas` SET Nome='$nomeDiciplina',sigla='$sigla',cargaHoraria='$cargaHora', descricao = '$descricao' WHERE idDiciplina = '$idDiciplina'";
+    $sql = "UPDATE diciplinas SET Nome='$nomeDiciplina',sigla='$sigla',cargaHoraria='$cargaHora', descricao = '$descricao' WHERE idDiciplina = '$idDiciplina', tipo = '$tipo'";
     $query = $GLOBALS['con']->query($sql);
 
     if($query == true)
@@ -87,7 +87,7 @@ function editarCurso($idCurso,$nome, $mac, $dataMac, $modulo, $coordenador, $idD
             $sqlDisc = "update modulo set idDiciplina = '$nomeDis[$i]', prerequisito = '$requisito[$i]' where idModulo = '$id[$i]' and idCurso = '$idCurso'";
             $sqlDisc = $GLOBALS['con']->query($sqlDisc);
 
-
+            echo "<script>alert('chegou aqui')</script>";
 
         }
 
@@ -161,8 +161,24 @@ function addModulo($idCurso, $semestre, $idDiciplina)
 
     for($i = 0;$i < $count; $i++) {
 
-        $sql = "insert into modulo (idCurso, semestre, idDiciplina) VALUES ('$idCurso', '$semestre', '$idDiciplina[$i]')";
-        $query = $GLOBALS['con']->query($sql);
+        $select = "select * from modulo where idDiciplina = '$idDiciplina[$i]' and idCurso = '$idCurso'";
+
+        $select1 = $GLOBALS['con']->query($select);
+
+
+        if($select1->num_rows<=0){
+
+            $sql = "insert into modulo (idCurso, semestre, idDiciplina) VALUES ('$idCurso', '$semestre', '$idDiciplina[$i]')";
+            $query = $GLOBALS['con']->query($sql);
+        }else{
+
+            echo "<script>alert('A disicplina ja foi adicionada!'); location.href='diciplinasCurso.php'</script>";
+            return true;
+
+
+        }
+
+
     }
     if($query == true)
     {
@@ -351,10 +367,10 @@ function deletaAluno($idAluno)
 
 }
 
-function addTurma($nome, $idCurso, $periodo, $numAlunos)
+function addTurma($nome, $idCurso, $numAlunos)
 {
 
-    $sql = "INSERT INTO turma( Nome, idCurso, PeriodoLetivo,numAlunos) VALUES ('$nome','$idCurso','$periodo','$numAlunos')";
+    $sql = "INSERT INTO turma( Nome, idCurso,numAlunos) VALUES ('$nome','$idCurso','$numAlunos')";
 
     $query = $GLOBALS['con']->query($sql);
 
@@ -370,10 +386,10 @@ function addTurma($nome, $idCurso, $periodo, $numAlunos)
 
 }
 
-function editarTurma($nome, $idCurso, $periodo, $idTurma, $numAlunos)
+function editarTurma($nome, $idCurso, $idTurma, $numAlunos)
 {
 
-    $sql = "UPDATE `turma` SET Nome='$nome',idCurso='$idCurso',PeriodoLetivo='$periodo', numAlunos='$numAlunos' WHERE idTurma = '$idTurma'";
+    $sql = "UPDATE `turma` SET Nome='$nome',idCurso='$idCurso', numAlunos='$numAlunos' WHERE idTurma = '$idTurma'";
 
     $query = $GLOBALS['con']->query($sql);
 
@@ -446,28 +462,26 @@ function editaLetivo($idLetivo, $nome, $inicio, $termino)
 }
 
 
-function alunosDisc($idAluno, $idDiciplina, $carga, $requisito,$situacao, $conclusao, $semestre, $id)
+function alunosDisc($idTurma, $idDiciplina, $carga, $requisito,$situacao, $conclusao, $semestre, $id)
 {
     $count = count($id);
-    $sql = "SELECT * FROM alunos_disciplinas where idAluno = '$idAluno'";
+    $sql = "SELECT * FROM alunos_disciplinas where idTurma = '$idTurma'";
     $query2 = $GLOBALS['con']->query($sql);
     if($query2->num_rows<=0)
     {
         for($i = 0 ; $i < $count; $i++) {
-            $sql2 = "INSERT INTO alunos_disciplinas( idDiciplina, idAluno, cargaHoraria, prerequisito, situacao, dataConclusao, semestre)
- VALUES ('$idDiciplina[$i]','$idAluno','$carga[$i]','$requisito[$i]','$situacao[$i]','$conclusao[$i]','$semestre[$i]')";
+            $sql2 = "INSERT INTO alunos_disciplinas( idDiciplina, idTurma, cargaHoraria, prerequisito, situacao, semestre,PeriodoLetivo)
+ VALUES ('$idDiciplina[$i]','$idTurma','$carga[$i]','$requisito[$i]','$situacao[$i]','$semestre[$i]', '$conclusao[$i]')";
             $query = $GLOBALS['con']->query($sql2);
         }
 
     }else
     {
-        for($i = 0 ; $i < $count; $i++) {
-
-           echo "<script>alert('$idAluno, $idDiciplina[$i], $carga[$i], $requisito[$i],$situacao[$i], $conclusao[$i], $semestre[$i], $id[$i]')</script>";
-
-            $sql2 = "UPDATE alunos_disciplinas SET idDiciplina='$idDiciplina[$i]',idAluno='$idAluno',cargaHoraria='$carga[$i]',
-prerequisito='$requisito[$i]',situacao='$situacao[$i]',dataConclusao='$conclusao[$i]', semestre='$semestre[$i]' WHERE
-idAD = '$id[$i]' and idAluno = '$idAluno'";
+        for($i = 0 ; $i < $count; $i++)
+        {
+            $sql2 = "UPDATE alunos_disciplinas SET idDiciplina='$idDiciplina[$i]', PeriodoLetivo = '$conclusao[$i]', idTurma='$idTurma',cargaHoraria='$carga[$i]',
+prerequisito='$requisito[$i]',situacao='$situacao[$i]', semestre='$semestre[$i]'  WHERE
+idAD = '$id[$i]' and idTurma = '$idTurma'";
             $query = $GLOBALS['con']->query($sql2);
         }
 
@@ -480,6 +494,50 @@ idAD = '$id[$i]' and idAluno = '$idAluno'";
     }else
     {
         echo "<script>alert('Ocorreu um erro ao atualizar'); history.back(-1);</script>";
+        return true;
+    }
+
+
+
+}
+
+
+function historicoletivo($semestre, $numAlunos, $idCurso,$idTurma, $idLetivo)
+{
+
+
+    for($i = 0; $i< $semestre;$i++)
+    {
+        $let = $i +1;
+
+        if($numAlunos[$i] != "")
+        {
+
+            $sql3 = "SELECT * FROM historicoletivo where idTurma= '$idTurma' and semestre = '$let'";
+            $historico = $GLOBALS['con']->query($sql3);
+            if($historico->num_rows<=0) {
+
+                $sql = "INSERT INTO historicoletivo(idLetivo, idTurma, numAlunos, idCurso, semestre) VALUES ('$idLetivo[$i]','$idTurma','$numAlunos[$i]','$idCurso','$let')";
+                $query = $GLOBALS['con']->query($sql);
+            }else
+            {
+
+                $sql = "UPDATE historicoletivo SET idLetivo='$idLetivo[$i]',numAlunos='$numAlunos[$i]' WHERE idTurma='$idTurma' and semestre = '$let'";
+                $query = $GLOBALS['con']->query($sql);
+
+            }
+
+
+        }
+    }
+
+    if($query == true)
+    {
+        echo "<script>alert('Salvo com sucesso'); location.href='consultarTurma.php';</script>";
+        return true;
+    }else
+    {
+        echo "<script>alert('Ocorreu uma falha ao atualizar'); history.back(-1);</script>";
         return true;
     }
 

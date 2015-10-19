@@ -1,0 +1,120 @@
+body {
+
+    background-color: #761c19;
+    font: 15px/18px Arial, sans-serif ;
+}
+p {
+    margin: 0;
+}
+.sidebar-menus {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    width: 20%;
+
+}
+.draggable-elements {
+    margin-top: 20px;
+    position: relative;
+    z-index: 2;
+}
+.draggable-elements .element {
+    margin: 2px 0;
+    padding: 5px;
+    vertical-align: top;
+    min-height: 43px;
+    z-index: 1;
+}
+.draggable-elements .element .icons-fonts {
+    opacity: 0.4;
+    float: left;
+}
+.draggable-elements .element .icons-fonts.move {
+    cursor: move;
+    max-width: 200px;
+    height: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 22px;
+}
+.draggable-elements .element .name,
+.draggable-elements .element .type {
+    padding-left: 20px;
+}
+.draggable-elements .element .name {
+    color: #FFF;
+    word-break: break-all;
+    font-size: 17px;
+}
+.draggable-elements .element .f-type {
+    font-size: 10px;
+    opacity: 0.4;
+    padding-left: 20px;
+}
+.draggable-elements .element .close,
+.draggable-elements .element .jqTransformSelectWrapper {
+    display: none;
+}
+.draggable-elements .element.ui-draggable-dragging {
+    width: 250px !important;
+}
+.dragdrop-field {
+    margin: 20px 0 0 500px;
+    width: 25%;
+
+}
+.dragdrop-field .dragdrop-box {
+    background-color: #FFF;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    border-radius: 3px;
+    box-shadow: inset 0 0 10px #333;
+}
+
+/*interno*/
+
+.dragdrop-field .dragdrop-box #dragndrop {
+    background: #FFF;
+    border: 4px dashed #FFF;
+    margin: 20px;
+    min-height: 100px;
+}
+.dragdrop-field .dragdrop-box #dragndrop > p {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: %;
+    text-align: left;
+    color: #717171;
+    line-height: 100px;
+    font-weight: bold;
+}
+.dragdrop-field .dragdrop-box #dragndrop.highlight {
+    border: 2px dashed #CCC;
+    background-color: #F2F2F2;
+}
+.dragdrop-field .dragdrop-box #dragndrop.highlight > p {
+    color: #666;
+}
+.dragdrop-field .dragdrop-box #dragndrop li {
+    position: relative;
+}
+.dragdrop-field .dragdrop-box #dragndrop li .close {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    margin-top: -10px;
+    color: #000;
+    opacity: 0.5;
+    font-weight: bold;
+    font-size: 20px;
+}
+.dragdrop-field .dragdrop-box #dragndrop li .close:hover {
+    color: #FFF;
+    opacity: 1;
+}
+.dragdrop-field .dragdrop-box #dragndrop li .move:before {
+    margin-left: 4px;
+}

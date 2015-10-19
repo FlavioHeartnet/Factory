@@ -42,6 +42,17 @@ include("topo.php");
                     <input class="inputDisciplina" type="text" name="desc" placeholder="Descricao">
                     <br><br>
                     <br>
+                    <p class="cadastroLabel">Tipo da materia</p>
+                    <label>
+                        <select name="tipo" class="ui dropdown">
+                            <option value="1">Ímpar</option>
+                            <option value="2">Par</option>
+
+                        </select>
+                    </label>
+                    <br><br>
+                    <br>
+
 
                     <input type="submit" name="gravar" class="ui green right labeled icon button" value="Cadastrar">
 
@@ -66,8 +77,9 @@ if(isset($_POST['gravar']))
     $sigla = $_POST['sigla'];
     $cargaHora = $_POST['horas'];
     $descricao = $_POST['desc'];
+    $tipo = $_POST['tipo'];
 
-    addDiciplina($nomeDiciplina, $sigla, $cargaHora, $descricao);
+    addDiciplina($nomeDiciplina, $sigla, $cargaHora, $descricao, $tipo);
 }
 ?>
 

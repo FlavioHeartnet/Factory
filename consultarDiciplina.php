@@ -97,6 +97,7 @@ include("topo.php");
                             <input type="hidden" value="<?php echo $RsQuery['idDiciplina']; ?>" name="id">
                             <input type="hidden" value="<?php echo $RsQuery['sigla']; ?>" name="sigla">
                             <input type="hidden" value="<?php echo $RsQuery['descricao']; ?>" name="descricao">
+                            <input type="hidden" value="<?php echo $RsQuery['tipo']; ?>" name="tipo">
                             <div class="description">
                                <p><?php echo $RsQuery['descricao']; ?></p>
                                 <!--Colocar aqui o que for preenchido em "descrição" na página do casdastro-->

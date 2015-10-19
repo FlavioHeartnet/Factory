@@ -15,20 +15,17 @@ while($rs = $sql->fetch_array())
     $rsQuery = $query->fetch_array();
 
     if($rs['prerequisito'] == 0 or $rs['prerequisito'] == "") {
-
-
         ?>
 
         <p>Sem Pre-Requisitos</p>
         <input type="hidden" value="0" name="requisito[]">
 
     <?php
-
     }else
     {
         ?>
 
-        <p><?php echo $rsQuery['Nome'] ?></p>
+        <p><?php echo utf8_encode($rsQuery['Nome']); ?></p>
         <input type="hidden" value="<?php echo $rsQuery['idDiciplina'] ?>" name="requisito[]">
     <?php
     }

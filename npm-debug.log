@@ -1,0 +1,64 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   '-g',
+1 verbose cli   'gulp' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.32
+4 verbose cache add [ 'gulp', null ]
+5 verbose cache add name=undefined spec="gulp" args=["gulp",null]
+6 verbose parsed url { protocol: null,
+6 verbose parsed url   slashes: null,
+6 verbose parsed url   auth: null,
+6 verbose parsed url   host: null,
+6 verbose parsed url   port: null,
+6 verbose parsed url   hostname: null,
+6 verbose parsed url   hash: null,
+6 verbose parsed url   search: null,
+6 verbose parsed url   query: null,
+6 verbose parsed url   pathname: 'gulp',
+6 verbose parsed url   path: 'gulp',
+6 verbose parsed url   href: 'gulp' }
+7 silly lockFile 9750c68d-gulp gulp
+8 verbose lock gulp C:\Users\joao.landino\AppData\Roaming\npm-cache\9750c68d-gulp.lock
+9 silly lockFile 9750c68d-gulp gulp
+10 silly lockFile 9750c68d-gulp gulp
+11 verbose addNamed [ 'gulp', '' ]
+12 verbose addNamed [ null, '*' ]
+13 silly lockFile 72f4391e-gulp gulp@
+14 verbose lock gulp@ C:\Users\joao.landino\AppData\Roaming\npm-cache\72f4391e-gulp.lock
+15 silly addNameRange { name: 'gulp', range: '*', hasData: false }
+16 verbose request where is /gulp
+17 verbose request registry https://registry.npmjs.org/
+18 verbose request id 41eb5cc9e21eb837
+19 verbose url raw /gulp
+20 verbose url resolving [ 'https://registry.npmjs.org/', './gulp' ]
+21 verbose url resolved https://registry.npmjs.org/gulp
+22 verbose request where is https://registry.npmjs.org/gulp
+23 info trying registry request attempt 1 at 13:19:44
+24 http GET https://registry.npmjs.org/gulp
+25 info retry will retry, error on last attempt: Error: getaddrinfo EAGAIN
+26 info trying registry request attempt 2 at 13:20:06
+27 http GET https://registry.npmjs.org/gulp
+28 info retry will retry, error on last attempt: Error: getaddrinfo EAGAIN
+29 info trying registry request attempt 3 at 13:21:17
+30 http GET https://registry.npmjs.org/gulp
+31 silly lockFile 72f4391e-gulp gulp@
+32 silly lockFile 72f4391e-gulp gulp@
+33 error network getaddrinfo ENOTFOUND
+33 error network This is most likely not a problem with npm itself
+33 error network and is related to network connectivity.
+33 error network In most cases you are behind a proxy or have bad network settings.
+33 error network
+33 error network If you are behind a proxy, please make sure that the
+33 error network 'proxy' config is set properly.  See: 'npm help config'
+34 error System Windows_NT 6.1.7601
+35 error command "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "-g" "gulp"
+36 error cwd C:\wamp\www\factory
+37 error node -v v0.10.32
+38 error npm -v 1.4.28
+39 error syscall getaddrinfo
+40 error code ENOTFOUND
+41 error errno ENOTFOUND
+42 verbose exit [ 1, true ]

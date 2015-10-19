@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../css/drag.css">
+    <link rel="stylesheet" type="text/css" href="../css/semantic.css">
+    <link rel="stylesheet" type="text/css" href="../css/homepage.css">
+
+    <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="../js/drag.js"></script>
+</head>
+<body>
+<div class="ui vertical feature segment"> <!-- configurando página verticalmente (pixelização vertical)-->
+    <div class="ui centered page grid"> <!-- Uma vez que foi configurada a pixelização, configura a centralização-->
+    <div class="titlePage">
+              Seleção de displinas
+        </div>
+      <div class="fourteen wide column"> <!--configuração padrão para definição de colunas-->
+        <div class="ui two column center aligned stackable divided grid"> <!--configuração padrão para definição de colunas-->
+            <div class="column"> <!-- inicio da coluna da esquerda-->
+            <h3> Disciplinas </h3>
+            <div>
+                <ul id="draggable-elements" class="draggable-elements ui-helper-reset ui-helper-clearfix">
+
+                <!--#1BLOCO-->
+                    <li class="element draggable" style="display:flex">
+                        <div class="ui cards ">
+                          <div class="ui red card">
+                            <div class="content">
+                              <div class="header icons-fonts move">Algoritmos</div><br>
+                              <div class="meta">CCO1 / CCO2 / CCO3</div>
+                              <div class="description">
+                              </div>
+                            </div>
+                            <a href="javascript:void(0)" title="Delete this element" class="icons-fonts close">x</a>
+                          </div>
+                        </div>
+                     </li>
+
+                     <!--#2BLOCO-->
+                    <li class="element draggable" style="display:flex">
+                        <div class="ui cards ">
+                          <div class="ui red card">
+                            <div class="content">
+                              <div class="header icons-fonts move">Algoritmos</div><br>
+                              <div class="meta">CCO1 / CCO2 / CCO3</div>
+                              <div class="description">
+                              </div>
+                            </div>
+                            <a href="javascript:void(0)" title="Delete this element" class="icons-fonts close">x</a>
+                          </div>
+                        </div>
+                     </li>
+                     
+                     <!--#3BLOCO-->
+                    <li class="element draggable" style="display:flex">
+                        <div class="ui cards ">
+                          <div class="ui red card">
+                            <div class="content">
+                              <div class="header icons-fonts move">Algoritmos</div><br>
+                              <div class="meta">CCO1 / CCO2 / CCO3</div>
+                              <div class="description">
+                              </div>
+                            </div>
+                            <a href="javascript:void(0)" title="Delete this element" class="icons-fonts close">x</a>
+                          </div>
+                        </div>
+                     </li>
+                    
+                     <!--#4BLOCO-->
+                    <li class="element draggable" style="display:flex">
+                        <div class="ui cards ">
+                          <div class="ui red card">
+                            <div class="content">
+                              <div class="header icons-fonts move">Algoritmos</div><br>
+                              <div class="meta">CCO1 / CCO2 / CCO3</div>
+                              <div class="description">
+                              </div>
+                            </div>
+                            <a href="javascript:void(0)" title="Delete this element" class="icons-fonts close">x</a>
+                          </div>
+                        </div>
+                     </li>
+                    
+                      <!--#5BLOCO-->
+                    <li class="element draggable" style="display:flex">
+                        <div class="ui cards ">
+                          <div class="ui red card">
+                            <div class="content">
+                              <div class="header icons-fonts move">Algoritmos</div><br>
+                              <div class="meta">CCO1 / CCO2 / CCO3</div>
+                              <div class="description">
+                              </div>
+                            </div>
+                            <a href="javascript:void(0)" title="Delete this element" class="icons-fonts close">x</a>
+                          </div>
+                        </div>
+                     </li>
+                    
+                      <!--#6BLOCO-->
+                    <li class="element draggable" style="display:flex">
+                        <div class="ui cards ">
+                          <div class="ui red card">
+                            <div class="content">
+                              <div class="header icons-fonts move">Algoritmos</div><br>
+                              <div class="meta">CCO1 / CCO2 / CCO3</div>
+                              <div class="description">
+                              </div>
+                            </div>
+                            <a href="javascript:void(0)" title="Delete this element" class="icons-fonts close">x</a>
+                          </div>
+                        </div>
+                     </li>
+                </ul>
+            </div>
+            </div>
+            <div class="column">
+            <!--Campo que recebe as disciplinas arrasta e solta-->
+            <h3> Turmas </h3>
+                    <p class="cadastroLabel">Turma 1º Trimestre</p>
+                    <div class="dragdrop-field">
+                        <div class="dragdrop-box">
+                            <div id="dragndropT1" class="draggable-elements ui-widget-content ui-state-default">
+                                <p>Arrastar e soltar aqui</p>
+                            </div>
+                        </div>
+                    </div>
+                    <br><p class="cadastroLabel">Turma 2º Trimestre</p>
+                    <div class="dragdrop-field">
+                        <div class="dragdrop-box">
+                            <div id="dragndropT2" class="draggable-elements ui-widget-content ui-state-default">
+                                <p>Arrastar e soltar aqui</p>
+                            </div>
+                        </div>
+                    </div>
+                    <br><p class="cadastroLabel">Turma 3º Trimestre</p>
+                    <div class="dragdrop-field">
+                        <div class="dragdrop-box">
+                            <div id="dragndropT3" class="draggable-elements ui-widget-content ui-state-default">
+                                <p>Arrastar e soltar aqui</p>
+                            </div>
+                        </div>
+                    </div>
+                    <br><p class="cadastroLabel">Turma 4º Trimestre</p>
+                    <div class="dragdrop-field">
+                        <div class="dragdrop-box">
+                            <div id="dragndropT4" class="draggable-elements ui-widget-content ui-state-default">
+                                <p>Arrastar e soltar aqui</p>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>
+</body>
+</html>
+
+<!--by!...ralphera_date_17/10/2015-->

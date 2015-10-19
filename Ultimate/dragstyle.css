@@ -1,0 +1,42 @@
+.main {
+    font-family: Arial, Baskerville, monospace;
+}
+.main ,h2{
+
+
+}
+
+.main .tabDisciplina {
+    padding: inherit;
+    width: 280px;
+    height: 500px;
+    background: #87201f;
+    border: 4px solid #bdbdbd;
+    margin: 5% auto;
+    float: left;
+    top: 0;
+    text-align: center;
+}
+.main .disciplinas {
+    width: 250px;
+    height: 25px;
+    background: #fafdee;
+    border: 2px solid #bdbdbd;
+    margin: 10px auto;
+}
+.main .disciplinas.disciplina {
+    background: #faf8ff;
+}
+.main .tabelas {
+    width: 280px;
+    height: 500px;
+    background: #87201f;
+    border: 4px solid #bdbdbd;
+    margin: 5% auto;
+    padding-bottom: inherit;
+    float: right;
+    top: 0;
+}
+
+
+

@@ -46,7 +46,7 @@ include('funcoes.php');
                 <div class="field">
                     <label style="font-size: 1pc;">Usuário</label>
                     <div class="ui big icon input">
-                        <input name="usuario" type="text" placeholder="Usuário">
+                        <input name="usuario" type="text" autocomplete="off" placeholder="Usuário">
                         <i class="user icon"></i>
                     </div>
                 </div>
