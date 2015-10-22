@@ -569,3 +569,12 @@ function iserirEquivalente($idDisciplina, $equivalente, $requisito)
 
 }
 
+function gradeLetica($ad, $letivo)
+{
+
+    $sql = "update alunos_historico set PeriodoLertivo='$letivo' where idAD = '$ad'";
+
+
+
+}
+

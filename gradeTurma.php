@@ -118,18 +118,25 @@ include("topo.php");
                                     }
                                 }
 
+                                $conect = "select * from alunos_disciplinas a inner join diciplinas d on d.idDiciplina = a.idDiciplina where a.idDiciplina = '$id' and PeriodoLetivo = '$modulo'";
+                                $ADC = $con->query($conect);
+                                $rsQ = $ADC->fetch_array();
+                                $idAd = $rsQ['idAD'];
+
+
 
 
 
 
                              ?>
-                            <li class="element draggable" style="display:flex">
+                            <li class="element draggable" onclick="dragDisc(0,<?php echo $idAd; ?>,<?php echo $contador ?>)" style="display:flex">
                                 <div class="ui cards ">
                                     <div class="ui red card">
                                         <div class="content">
                                             <div class="header move"><?php echo utf8_encode($rsDisc['Nome']); ?></div><br>
                                             <div class="meta">Ultimo periodo cursado: <?php echo $rsDisc2['Nome']; ?></div>
-                                            <div class="meta">Numero de Alunos: <div id="resultado<?php echo $contador; ?>"><?php echo $total; ?></div></div>
+                                            <div id="resultado<?php echo $contador; ?>"></div>
+                                            <div class="meta">Numero de Alunos: <?php echo $total; ?></div>
                                             <div class="meta"><strong>Modulo:  <?php echo $rsModulo['semestre']; ?></strong></div>
                                             <div class="description">
                                             </div>
@@ -199,9 +206,10 @@ include("topo.php");
                                                         <div class="header move"><?php echo utf8_encode($rsDisc['Nome']); ?></div><br>
                                                         <input type="hidden" name="idAD[]" value="<?php echo $rsDisc['idAD']; ?>" >
                                                         <input type="hidden" name="idDiciplina[]" value="<?php echo $rsDisc['idDiciplina']; ?>" >
+                                                        <input type="hidden" name="idTurma" value="<?php echo $rsDisc['idDiciplina']; ?>" >
                                                         <div class="meta">Ultimo periodo cursado:  <?php echo $rsDisc2['Nome']; ?></div>
                                                         <div class="meta">Numero de Alunos:  <?php echo $historico['numAlunos']; ?></div>
-                                                        <div class="meta"><strong>Modulo:  <?php echo $rsDisc['semestre']; ?></strong></div>
+                                                        <div class="meta"><strong>Modulo:  <?php echo $idTurma ?></strong></div>
                                                         <div class="description">
                                                         </div>
                                                     </div>
@@ -277,7 +285,7 @@ $query = $con->query($sql);
 
     var req;
 
-    function buscaRequisitos(valor, valor2, valor3) {
+    function dragDisc(valor, valor2, valor3) {
 
         var tipo = 'resultado'+valor3;
 
@@ -291,7 +299,7 @@ $query = $con->query($sql);
         }
 
 // Arquivo PHP juntamente com o valor digitado no campo (método GET)
-        var url = "buscas/requisitos.php?valor="+valor+"&valor2="+valor2;
+        var url = "buscas/dragDisc.php?valor="+valor+"&valor2="+valor2;
 
 
 // Chamada do método open para processar a requisição
