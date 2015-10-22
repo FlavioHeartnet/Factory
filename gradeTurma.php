@@ -11,14 +11,14 @@ include("topo.php");
 <div class="ui vertical feature segment"> <!-- configurando página verticalmente (pixelização vertical)-->
     <div class="ui centered page grid"> <!-- Uma vez que foi configurada a pixelização, configura a centralização-->
         <div class="titlePage">
-            Seleção de displinas
+            Seleção de disciplinas
         </div>
 
-        <div class="fourteen wide column"> <!--configuração padrão para definição de colunas-->
+        <div class="sixteen wide column"> <!--configuração padrão para definição de colunas-->
             <form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post">
             <div class="ui fluid category search ">
                 <div class="ui icon input">
-                    <input class="prompt" required="" name="curso" id="" type="text" placeholder="Proucurar curso">
+                    <input class="prompt" autocomplete="off" required="" name="curso" id="" type="text" placeholder="Proucurar curso">
 
                     <i class="search icon buscarM"></i>
                 </div>
@@ -56,6 +56,7 @@ include("topo.php");
                 $query = $con->query($sql);
                 $rsCurso = $query->fetch_array();
                 $idCurso = $rsCurso['idCurso'];
+                $contador=0;
 
 
 
@@ -91,9 +92,35 @@ include("topo.php");
                                 $query2 = $con->query($sql);
                                 $rsDisc2 = $query2->fetch_array();
 
-                                $sql = "select * from historicoletivo where idLetivo= '$letivo'";
-                                $query2 = $con->query($sql);
-                                $historico = $query2->fetch_array();
+                                $conect = "select * from alunos_disciplinas a inner join diciplinas d on d.idDiciplina = a.idDiciplina where a.idDiciplina = '$id'";
+                                $ADC = $con->query($conect);
+                                $total = 0;
+
+                                if($ADC== true) {
+
+                                    while ($rsQ = $ADC->fetch_array()) {
+
+                                            $turma = $rsQ['idTurma'];
+                                            $semstres = $rsQ['semestre'];
+
+
+
+                                            $numalunos = "select * from historicoletivo where idTurma='$turma' and semestre = '$semstres'";
+                                            $nums = $con->query($numalunos);
+                                            $nums = $nums->fetch_array();
+                                            $numAlunos1 = $nums['numAlunos'];
+
+                                            $total+= $numAlunos1;
+
+
+
+
+                                    }
+                                }
+
+
+
+
 
                              ?>
                             <li class="element draggable" style="display:flex">
@@ -101,8 +128,9 @@ include("topo.php");
                                     <div class="ui red card">
                                         <div class="content">
                                             <div class="header move"><?php echo utf8_encode($rsDisc['Nome']); ?></div><br>
-                                            <div class="meta">Periodo Letivo: <?php echo $rsDisc2['Nome']; ?></div>
-                                            <div class="meta">Numero de Alunos: <?php echo $historico['numAlunos']; ?></div>
+                                            <div class="meta">Ultimo periodo cursado: <?php echo $rsDisc2['Nome']; ?></div>
+                                            <div class="meta">Numero de Alunos: <div id="resultado<?php echo $contador; ?>"><?php echo $total; ?></div></div>
+                                            <div class="meta"><strong>Modulo:  <?php echo $rsModulo['semestre']; ?></strong></div>
                                             <div class="description">
                                             </div>
                                         </div>
@@ -110,7 +138,9 @@ include("topo.php");
                                     </div>
                                 </div>
                             </li>
-                            <?php } ?>
+                            <?php
+                                $contador++;
+                            } ?>
 
                         </ul>
                     </div>
@@ -119,7 +149,7 @@ include("topo.php");
                 <div class="column">
 
                     <!--Campo que recebe as disciplinas arrasta e solta-->
-                    <h3> Turmas </h3>
+                    <h3>Turmas</h3>
                     <?php
 
                     $sql = "select * from turma where idCurso = '$idCurso'";
@@ -128,9 +158,15 @@ include("topo.php");
 
                     while($rsTurma = $query->fetch_array()){
 
+                        $idTurma = $rsTurma['idTurma'];
+
+                        $texto = "select * from historicoletivo where idTurma='$idTurma' and idLetivo = '$modulo'";
+                        $query2 = $con->query($texto);
+                        $historico = $query2->fetch_array();
+
 
                     ?>
-                    <br><p class="cadastroLabel">Turma: <?php echo $rsTurma['Nome']; ?></p>
+                    <br><p class="cadastroLabel">Turma: <?php echo $rsTurma['Nome']; ?> <strong>Numero de alunos: <span class="turmas"><?php echo $historico['numAlunos']; ?></span></strong></p>
                     <div class="dragdrop-field">
                         <div class="dragdrop-box">
                             <div id="dragndropT1" class="draggable-elements ui-widget-content ui-state-default dragndropT1">
@@ -151,7 +187,7 @@ include("topo.php");
                                         $query2 = $con->query($sql);
                                         $rsDisc2 = $query2->fetch_array();
 
-                                        $sql = "select * from historicoletivo where idLetivo= '$letivo'";
+                                        $sql = "select * from historicoletivo where idLetivo= '$letivo' and idTurma = '$idTurma'";
                                         $query2 = $con->query($sql);
                                         $historico = $query2->fetch_array();
 
@@ -161,10 +197,11 @@ include("topo.php");
                                                 <div class="ui red card">
                                                     <div class="content">
                                                         <div class="header move"><?php echo utf8_encode($rsDisc['Nome']); ?></div><br>
-                                                        <input type="hidden" name="idAD" value="<?php echo $rsDisc['idAD']; ?>" >
-                                                        <input type="hidden" name="idDiciplina" value="<?php echo $rsDisc['idDiciplina']; ?>" >
-                                                        <div class="meta">Periodo Letivo:  <?php echo $rsDisc2['Nome']; ?></div>
+                                                        <input type="hidden" name="idAD[]" value="<?php echo $rsDisc['idAD']; ?>" >
+                                                        <input type="hidden" name="idDiciplina[]" value="<?php echo $rsDisc['idDiciplina']; ?>" >
+                                                        <div class="meta">Ultimo periodo cursado:  <?php echo $rsDisc2['Nome']; ?></div>
                                                         <div class="meta">Numero de Alunos:  <?php echo $historico['numAlunos']; ?></div>
+                                                        <div class="meta"><strong>Modulo:  <?php echo $rsDisc['semestre']; ?></strong></div>
                                                         <div class="description">
                                                         </div>
                                                     </div>
@@ -237,6 +274,50 @@ $query = $con->query($sql);
                 method      : 'The method you called is not defined.'
             }
         });
+
+    var req;
+
+    function buscaRequisitos(valor, valor2, valor3) {
+
+        var tipo = 'resultado'+valor3;
+
+
+// Verificando Browser
+        if(window.XMLHttpRequest) {
+            req = new XMLHttpRequest();
+        }
+        else if(window.ActiveXObject) {
+            req = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+// Arquivo PHP juntamente com o valor digitado no campo (método GET)
+        var url = "buscas/requisitos.php?valor="+valor+"&valor2="+valor2;
+
+
+// Chamada do método open para processar a requisição
+        req.open("get", url, true);
+
+// Quando o objeto recebe o retorno, chamamos a seguinte função;
+        req.onreadystatechange = function() {
+
+            // Exibe a mensagem "Buscando Noticias..." enquanto carrega
+            if(req.readyState == 1) {
+                document.getElementById(tipo).innerHTML = 'Calculando...';
+            }
+
+            // Verifica se o Ajax realizou todas as operações corretamente
+            if(req.readyState == 4 && req.status == 200) {
+
+                // Resposta retornada pelo busca.php
+                var resposta2 = req.responseText;
+
+                // Abaixo colocamos a(s) resposta(s) na div resultado
+                document.getElementById(tipo).innerHTML = resposta2;
+            }
+        };
+        req.send(null);
+    }
+
 
 </script>
 </body>

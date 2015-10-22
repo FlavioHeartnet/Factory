@@ -15,8 +15,8 @@ include("topo.php");
             Cadastro de Periodo Letivo
         </div>
         <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-        <div class="fourteen wide column">
-            <div class="ui two column center aligned stackable divided grid">
+        <div class="sixteen wide column">
+            <div class="ui one column center aligned stackable divided grid">
 
                 <div class="cadastroDisciplina column">
                     <p class="cadastroLabel">Nome do Periodo Letivo</p>
@@ -27,6 +27,18 @@ include("topo.php");
                     <br><br>
                     <p class="cadastroLabel">Termino</p>
                     <input class="inputDisciplina" name="fim" value="" type="date" placeholder="dd/mm/aaaa">
+                    <br><br>
+                    <p class="cadastroLabel">Periodo Letivo Anterior</p>
+                    <select required="" class="ui dropdown" name="modulo">
+                        <option value="0">Nenhum</option>
+                        <?php $sql2 = $con->query("select * from periodoletivo where 1");
+
+                        while($quey3 = $sql2->fetch_array()){
+                            ?>
+                            <option value="<?php echo $quey3['idLetivo']; ?>"><?php echo $quey3['Nome']; ?></option>
+
+                        <?php } ?>
+                    </select>
                     <br><br>
                     <br>
 
@@ -56,7 +68,8 @@ if(isset($_POST['gravar']))
     $nome = $_POST['nome'];
     $inicio = $_POST['inicio'];
     $termino = $_POST['fim'];
-    addLetivo($nome, $inicio, $termino);
+    $proximo = $_POST['modulo'];
+    addLetivo($nome, $inicio, $termino, $proximo);
 
 
 }

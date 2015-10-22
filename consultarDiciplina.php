@@ -81,46 +81,46 @@ include("topo.php");
             while($RsQuery = $query->fetch_array()){
 
             ?>
-
-            <div class="cadastroDisciplina column">
-
-                <!--<div class="cardsDisc">
-                Novo card-->
-                <form id="alterar" action ='editarDiciplina.php' method="post">
                 <div class="ui  cards">
                     <div class="red cardsDisc card">
                         <div class="content">
                             <div class="header"><?php echo utf8_encode($RsQuery['Nome']); ?></div>
-                            <input type="hidden" value="<?php echo $RsQuery['Nome']; ?>" name="nome">
-                            <div class="meta"><?php echo $RsQuery['cargaHoraria']; ?></div>
-                            <input type="hidden" value="<?php echo $RsQuery['cargaHoraria']; ?>" name="horas">
-                            <input type="hidden" value="<?php echo $RsQuery['idDiciplina']; ?>" name="id">
-                            <input type="hidden" value="<?php echo $RsQuery['sigla']; ?>" name="sigla">
-                            <input type="hidden" value="<?php echo $RsQuery['descricao']; ?>" name="descricao">
-                            <input type="hidden" value="<?php echo $RsQuery['tipo']; ?>" name="tipo">
+                            <div class="meta">Carga horaria:<?php echo $RsQuery['cargaHoraria']; ?></div>
                             <div class="description">
-                               <p><?php echo $RsQuery['descricao']; ?></p>
+                                Duração: <p><?php echo $RsQuery['descricao']; ?></p>
+
                                 <!--Colocar aqui o que for preenchido em "descrição" na página do casdastro-->
                             </div>
                         </div>
-                        <div class="ui bottom attached button">
-                            <a id="deletar" class="close" data-dismiss="alert">
-                                <i class="remove icon "></i>
-                                Excluir disciplina </a>
-                        </div>
-                        <div class="ui bottom attached button">
-                            <a id="editar" class="close" data-dismiss="alert" href="#">
-                                <i class="write icon "></i>
-                                Editar disciplina </a>
+                        <div class="extra content ">
+                            <form id="alterar" method="post" action="editarDiciplina.php">
+                                <input type="hidden" value="<?php echo $RsQuery['Nome']; ?>" name="nome">
+                                <input type="hidden" value="<?php echo $RsQuery['cargaHoraria']; ?>" name="horas">
+                                <input type="hidden" value="<?php echo $RsQuery['idDiciplina']; ?>" name="id">
+                                <input type="hidden" value="<?php echo $RsQuery['sigla']; ?>" name="sigla">
+                                <input type="hidden" value="<?php echo $RsQuery['descricao']; ?>" name="descricao">
+                                <input type="hidden" value="<?php echo $RsQuery['tipo']; ?>" name="tipo">
+
+                <span class="right floated">
+                  <a id="editar" class="alterar" data-dismiss="alert">
+                      <i class="write icon"></i>
+                      Editar</a> |
+                            </form>
+                            <form id="deletarDisciplina" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+                                <input type="hidden" value="<?php echo $RsQuery['idDiciplina']; ?>" name="deletarDisc">
+                                <a id="deletar" class="excluir" data-dismiss="alert">
+                                    <i class="remove icon "></i>
+                                    Excluir</a>
+
+                            </form>
                         </div>
                     </div>
-                </div>
-                </form>
-            </div>
-                <form  id="deletarDisciplina" action="<?php echo $_SERVER['PHP_SELF'];?>" method="post">
 
-                    <input type="hidden" name="deletarDisc" value="<?php echo $RsQuery['idDiciplina'] ?>">
-                </form>
+
+                </div>
+
+
+
 
             <?php
 

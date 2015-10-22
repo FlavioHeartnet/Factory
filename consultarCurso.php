@@ -151,7 +151,7 @@ include("topo.php");
                       <i class="remove icon "></i>
                       Excluir</a>
 
-                 </form></span>
+                 </form>
                                 </div>
                             </div>
 

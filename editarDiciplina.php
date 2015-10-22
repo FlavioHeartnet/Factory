@@ -109,9 +109,11 @@ if(isset($_POST['gravar']))
     $sigla = $_POST['sigla'];
     $cargaHora = $_POST['horas'];
     $descricao = $_POST['desc'];
+    $tipo = $_POST['tipo'];
     $id = $_POST['id'];
 
-    editarDiciplina($id, $nomeDiciplina, $sigla, $cargaHora, $descricao);
+
+    editarDiciplina($id, $nomeDiciplina, $sigla, $cargaHora, $descricao, $tipo);
 }else if(isset($_POST['deletar']))
 {
 

@@ -28,12 +28,9 @@ VALUES ('$nomeDiciplina','$sigla','$cargaHora','$descricao', '$tipo')";
 
 function editarDiciplina($idDiciplina,$nomeDiciplina, $sigla, $cargaHora, $descricao, $tipo)
 {
-    $nomeDiciplina = utf8_decode($nomeDiciplina);
-    $sigla = utf8_decode($sigla);
-    $cargaHora = utf8_decode($cargaHora);
-    $descricao = utf8_decode($descricao);
 
-    $sql = "UPDATE diciplinas SET Nome='$nomeDiciplina',sigla='$sigla',cargaHoraria='$cargaHora', descricao = '$descricao' WHERE idDiciplina = '$idDiciplina', tipo = '$tipo'";
+
+    $sql = "UPDATE diciplinas SET Nome='$nomeDiciplina',sigla='$sigla',cargaHoraria='$cargaHora', descricao = '$descricao', tipo = '$tipo' WHERE idDiciplina = '$idDiciplina'";
     $query = $GLOBALS['con']->query($sql);
 
     if($query == true)
@@ -426,9 +423,9 @@ function deletarTurma($idTurma)
 
 }
 
-function addLetivo($nome, $inicio, $termino)
+function addLetivo($nome, $inicio, $termino, $proximo)
 {
-    $sql = $GLOBALS['con']->query("INSERT INTO periodoletivo(Nome, inicio, termino) VALUES ('$nome','$inicio','$termino')");
+    $sql = $GLOBALS['con']->query("INSERT INTO periodoletivo(Nome, inicio, termino, LetivoProximo) VALUES ('$nome','$inicio','$termino','$proximo')");
 
     if($sql == true)
     {
@@ -443,9 +440,9 @@ function addLetivo($nome, $inicio, $termino)
 
 
 }
-function editaLetivo($idLetivo, $nome, $inicio, $termino)
+function editaLetivo($idLetivo, $nome, $inicio, $termino, $proximo)
 {
-    $sql = $GLOBALS['con']->query("UPDATE periodoletivo SET Nome='$nome',inicio='$inicio',termino='$termino' WHERE idLetivo = '$idLetivo'");
+    $sql = $GLOBALS['con']->query("UPDATE periodoletivo SET Nome='$nome',inicio='$inicio',termino='$termino', LetivoProximo='$proximo' WHERE idLetivo = '$idLetivo'");
 
     if($sql == true)
     {

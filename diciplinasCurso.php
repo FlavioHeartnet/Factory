@@ -106,7 +106,7 @@ include("topo.php");
 
                                                 ?>
                                                 <option
-                                                    value="<?php echo $rsQuery['idDiciplina']; ?>"><?php echo $rsQuery['Nome']; ?></option>
+                                                    value="<?php echo $rsQuery['idDiciplina']; ?>"><?php echo utf8_encode($rsQuery['Nome']); ?></option>
                                             <?php
                                             }
                                             ?>
